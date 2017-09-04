@@ -1,0 +1,6 @@
+---
+title: You dont know JS - Scope & Closures
+author: Kylie Simpson
+rights:  (c) Kylie Simpson
+language: en-US
+...

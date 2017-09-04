@@ -22,6 +22,25 @@ Please feel free to contribute to the quality of this content by submitting PR's
 * Read online (free!): ["Async & Performance"](async\%20&\%20performance/README.md#you-dont-know-js-async--performance), Published: [Buy Now](http://www.ebooks.com/1977375/you-don-t-know-js-async-performance/simpson-kyle/)
 * Read online (free!): ["ES6 & Beyond"](es6\%20&\%20beyond/README.md#you-dont-know-js-es6--beyond), Published: [Buy Now](http://www.ebooks.com/2481820/you-don-t-know-js-es6-beyond/simpson-kyle/)
 
+## Installing and making the `epub`, `PDF` and `HTML` books
+
+This copy of the original Github repo has been modified: It contains scripts to build the books as `epub`, `PDF` and `HTML`. To generate them :
+
+1. If you have not already done so, install:
+   
+   * `git <http://git-scm.com/>`_
+   * `make <http://www.gnu.org/software/make/>`_ (OS X users should install XCode
+     and `download the command line tools
+     <http://stackoverflow.com/questions/9329243/xcode-4-4-command-line-tools>`_.)
+   * `pandoc <http://johnmacfarlane.net/pandoc>`_
+   * `latex <http://www.latex-project.org/>`_ (OS X users should probably
+     install `MacTex <http://tug.org/mactex/>`_.)
+
+
+2. From the book directory (i.e. `./async & performance`), type ``make``.
+   This generates three versions of the book in a ``build/`` directory.
+
+
 ## Publishing
 
 These books are being released here as drafts, free to read, but are also being edited, produced, and published through O'Reilly.
