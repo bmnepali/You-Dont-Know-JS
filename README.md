@@ -1,6 +1,6 @@
 # You Don't Know JS (book series)
 
-This is a series of books diving deep into the core mechanisms of the JavaScript language. The first edition of the series is now complete.
+This is a series of books diving deep into the core mechanisms of the JavaScript language. The first edition of the series is now complete. It is written by Kyle Simpson and published in source code in his [github repo](https://github.com/getify/You-Dont-Know-JS). As I wanted to read it on the go, I added some scripts to create `ePub` books from it.
 
 <a href="http://www.ebooks.com/1993212/you-don-t-know-js-up-going/simpson-kyle/"><img src="up %26 going/cover.jpg" width="75"></a>&nbsp;
 <a href="http://www.ebooks.com/1647631/you-don-t-know-js-scope-closures/simpson-kyle/"><img src="scope %26 closures/cover.jpg" width="75"></a>&nbsp;
@@ -15,7 +15,7 @@ Please feel free to contribute to the quality of this content by submitting PR's
 
 ## Titles
 
-* **Up & Going** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/up%20%26%20going/build/epub/YDKJS-UpNgoing.epub), [as PDF](https://github.com/tillg/You-Dont-Know-JS/raw/master/up%20%26%20going/build/pdf/YDKJS-UpNgoing.pdf)
+* <img src="up %26 going/cover.jpg" width="75"> **Up & Going** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/up%20%26%20going/build/epub/YDKJS-UpNgoing.epub), [as PDF](https://github.com/tillg/You-Dont-Know-JS/raw/master/up%20%26%20going/build/pdf/YDKJS-UpNgoing.pdf)
 * Read online: ["Scope & Closures"](scope\%20&\%20closures/README.md#you-dont-know-js-scope--closures)
 * Read online: ["this & Object Prototypes"](this\%20&\%20object\%20prototypes/README.md#you-dont-know-js-this--object-prototypes)
 * Read online: ["Types & Grammar"](types\%20&\%20grammar/README.md#you-dont-know-js-types--grammar)
