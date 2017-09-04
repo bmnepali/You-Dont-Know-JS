@@ -15,7 +15,7 @@ Please feel free to contribute to the quality of this content by submitting PR's
 
 ## Titles
 
-* Read online: ["Up & Going"](up\%20&\%20going/README.md#you-dont-know-js-up--going) [ePub](up\%20&\%20going/build/epub/YDKJS-UpNgoing.epub) [PDF](up\%20&\%20going/build/pdf/YDKJS-UpNgoing.pdf)
+* **Up & Going** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/up%20%26%20going/build/epub/YDKJS-UpNgoing.epub), [as PDF](https://github.com/tillg/You-Dont-Know-JS/raw/master/up%20%26%20going/build/pdf/YDKJS-UpNgoing.pdf)
 * Read online: ["Scope & Closures"](scope\%20&\%20closures/README.md#you-dont-know-js-scope--closures)
 * Read online: ["this & Object Prototypes"](this\%20&\%20object\%20prototypes/README.md#you-dont-know-js-this--object-prototypes)
 * Read online: ["Types & Grammar"](types\%20&\%20grammar/README.md#you-dont-know-js-types--grammar)
