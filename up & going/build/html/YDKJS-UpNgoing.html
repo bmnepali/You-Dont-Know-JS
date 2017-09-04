@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#you-dont-know-js-up-going">You Don't Know JS: Up &amp; Going</a></li>
+<li><a href="#foreword">Foreword</a></li>
+<li><a href="#you-dont-know-js-up-going-1">You Don't Know JS: Up &amp; Going</a></li>
+<li><a href="#chapter-1-into-programming">Chapter 1: Into Programming</a><ul>
+<li><a href="#code">Code</a></li>
+<li><a href="#try-it-yourself">Try It Yourself</a></li>
+<li><a href="#operators">Operators</a></li>
+<li><a href="#values-types">Values &amp; Types</a></li>
+<li><a href="#code-comments">Code Comments</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#blocks">Blocks</a></li>
+<li><a href="#conditionals">Conditionals</a></li>
+<li><a href="#loops">Loops</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#practice">Practice</a></li>
+<li><a href="#review">Review</a></li>
+</ul></li>
+<li><a href="#you-dont-know-js-up-going-2">You Don't Know JS: Up &amp; Going</a></li>
+<li><a href="#chapter-2-into-javascript">Chapter 2: Into JavaScript</a><ul>
+<li><a href="#values-types-1">Values &amp; Types</a></li>
+<li><a href="#variables-1">Variables</a></li>
+<li><a href="#conditionals-1">Conditionals</a></li>
+<li><a href="#strict-mode">Strict Mode</a></li>
+<li><a href="#functions-as-values">Functions As Values</a></li>
+<li><a href="#this-identifier"><code>this</code> Identifier</a></li>
+<li><a href="#prototypes">Prototypes</a></li>
+<li><a href="#old-new">Old &amp; New</a></li>
+<li><a href="#non-javascript">Non-JavaScript</a></li>
+<li><a href="#review-1">Review</a></li>
+</ul></li>
+<li><a href="#you-dont-know-js-up-going-3">You Don't Know JS: Up &amp; Going</a></li>
+<li><a href="#chapter-3-into-ydkjs">Chapter 3: Into YDKJS</a><ul>
+<li><a href="#scope-closures">Scope &amp; Closures</a></li>
+<li><a href="#this-object-prototypes">this &amp; Object Prototypes</a></li>
+<li><a href="#types-grammar">Types &amp; Grammar</a></li>
+<li><a href="#async-performance">Async &amp; Performance</a></li>
+<li><a href="#es6-beyond">ES6 &amp; Beyond</a></li>
+<li><a href="#review-2">Review</a></li>
+</ul></li>
+<li><a href="#you-dont-know-js-up-going-4">You Don't Know JS: Up &amp; Going</a></li>
+<li><a href="#appendix-a-acknowledgments">Appendix A: Acknowledgments</a></li>
+</ul>
+</nav>
+<h1 id="you-dont-know-js-up-going">You Don't Know JS: Up &amp; Going</h1>
+<h1 id="foreword">Foreword</h1>
+<p>What was the last new thing you learned?</p>
+<p>Perhaps it was a foreign language, like Italian or German. Or maybe it was a graphics editor, like Photoshop. Or a cooking technique or woodworking or an exercise routine. I want you to remember that feeling when you finally got it: the lightbulb moment. When things went from blurry to crystal clear, as you mastered the table saw or understood the difference between masculine and feminine nouns in French. How did it feel? Pretty amazing, right?</p>
+<p>Now I want you to travel back a little bit further in your memory to right before you learned your new skill. How did <em>that</em> feel? Probably slightly intimidating and maybe a little bit frustrating, right? At one point, we all did not know the things that we know now and that’s totally OK; we all start somewhere. Learning new material is an exciting adventure, especially if you are looking to learn the subject efficiently.</p>
+<p>I teach a lot of beginner coding classes. The students who take my classes have often tried teaching themselves subjects like HTML or JavaScript by reading blog posts or copying and pasting code, but they haven’t been able to truly master the material that will allow them to code their desired outcome. And because they don’t truly grasp the ins and outs of certain coding topics, they can’t write powerful code or debug their own work, as they don’t really understand what is happening.</p>
+<p>I always believe in teaching my classes the proper way, meaning I teach web standards, semantic markup, well-commented code, and other best practices. I cover the subject in a thorough manner to explain the hows and whys, without just tossing out code to copy and paste. When you strive to comprehend your code, you create better work and become better at what you do. The code isn’t just your <em>job</em> anymore, it’s your <em>craft</em>. This is why I love <em>Up &amp; Going</em>. Kyle takes us on a deep dive through syntax and terminology to give a great introduction to JavaScript without cutting corners. This book doesn’t skim over the surface, but really allows us to genuinely understand the concepts we will be writing.</p>
+<p>Because it’s not enough to be able to duplicate jQuery snippets into your website, the same way it’s not enough to learn how to open, close, and save a document in Photoshop. Sure, once I learn a few basics about the program I could create and share a design I made. But without legitimately knowing the tools and what is behind them, how can I define a grid, or craft a legible type system, or optimize graphics for web use. The same goes for JavaScript. Without knowing how loops work, or how to define variables, or what scope is, we won’t be writing the best code we can. We don’t want to settle for anything less -- this is, after all, our craft.</p>
+<p>The more you are exposed to JavaScript, the clearer it becomes. Words like closures, objects, and methods might seem out of reach to you now, but this book will help those terms come into clarity. I want you to keep those two feelings of before and after you learn something in mind as you begin this book. It might seem daunting, but you’ve picked up this book because you are starting an awesome journey to hone your knowledge. <em>Up &amp; Going</em> is the start of our path to understanding programming. Enjoy the lightbulb moments!</p>
+<p>Jenn Lukas<br/> <a href="http://jennlukas.com/">jennlukas.com</a>, <span class="citation" data-cites="jennlukas">[@jennlukas]</span>(https://twitter.com/jennlukas)<br/> Front-end consultant</p>
+<h1 id="you-dont-know-js-up-going-1">You Don't Know JS: Up &amp; Going</h1>
+<h1 id="chapter-1-into-programming">Chapter 1: Into Programming</h1>
+<p>Welcome to the <em>You Don't Know JS</em> (<em>YDKJS</em>) series.</p>
+<p><em>Up &amp; Going</em> is an introduction to several basic concepts of programming -- of course we lean toward JavaScript (often abbreviated JS) specifically -- and how to approach and understand the rest of the titles in this series. Especially if you're just getting into programming and/or JavaScript, this book will briefly explore what you need to get <em>up and going</em>.</p>
+<p>This book starts off explaining the basic principles of programming at a very high level. It's mostly intended if you are starting <em>YDKJS</em> with little to no prior programming experience, and are looking to these books to help get you started along a path to understanding programming through the lens of JavaScript.</p>
+<p>Chapter 1 should be approached as a quick overview of the things you'll want to learn more about and practice to get <em>into programming</em>. There are also many other fantastic programming introduction resources that can help you dig into these topics further, and I encourage you to learn from them in addition to this chapter.</p>
+<p>Once you feel comfortable with general programming basics, Chapter 2 will help guide you to a familiarity with JavaScript's flavor of programming. Chapter 2 introduces what JavaScript is about, but again, it's not a comprehensive guide -- that's what the rest of the <em>YDKJS</em> books are for!</p>
+<p>If you're already fairly comfortable with JavaScript, first check out Chapter 3 as a brief glimpse of what to expect from <em>YDKJS</em>, then jump right in!</p>
+<h2 id="code">Code</h2>
+<p>Let's start from the beginning.</p>
+<p>A program, often referred to as <em>source code</em> or just <em>code</em>, is a set of special instructions to tell the computer what tasks to perform. Usually code is saved in a text file, although with JavaScript you can also type code directly into a developer console in a browser, which we'll cover shortly.</p>
+<p>The rules for valid format and combinations of instructions is called a <em>computer language</em>, sometimes referred to as its <em>syntax</em>, much the same as English tells you how to spell words and how to create valid sentences using words and punctuation.</p>
+<h3 id="statements">Statements</h3>
+<p>In a computer language, a group of words, numbers, and operators that performs a specific task is a <em>statement</em>. In JavaScript, a statement might look as follows:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">a <span class="op">=</span> b <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></code></pre></div>
+<p>The characters <code>a</code> and <code>b</code> are called <em>variables</em> (see &quot;Variables&quot;), which are like simple boxes you can store any of your stuff in. In programs, variables hold values (like the number <code>42</code>) to be used by the program. Think of them as symbolic placeholders for the values themselves.</p>
+<p>By contrast, the <code>2</code> is just a value itself, called a <em>literal value</em>, because it stands alone without being stored in a variable.</p>
+<p>The <code>=</code> and <code>*</code> characters are <em>operators</em> (see &quot;Operators&quot;) -- they perform actions with the values and variables such as assignment and mathematic multiplication.</p>
+<p>Most statements in JavaScript conclude with a semicolon (<code>;</code>) at the end.</p>
+<p>The statement <code>a = b * 2;</code> tells the computer, roughly, to get the current value stored in the variable <code>b</code>, multiply that value by <code>2</code>, then store the result back into another variable we call <code>a</code>.</p>
+<p>Programs are just collections of many such statements, which together describe all the steps that it takes to perform your program's purpose.</p>
+<h3 id="expressions">Expressions</h3>
+<p>Statements are made up of one or more <em>expressions</em>. An expression is any reference to a variable or value, or a set of variable(s) and value(s) combined with operators.</p>
+<p>For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">a <span class="op">=</span> b <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></code></pre></div>
+<p>This statement has four expressions in it:</p>
+<ul>
+<li><code>2</code> is a <em>literal value expression</em></li>
+<li><code>b</code> is a <em>variable expression</em>, which means to retrieve its current value</li>
+<li><code>b * 2</code> is an <em>arithmetic expression</em>, which means to do the multiplication</li>
+<li><code>a = b * 2</code> is an <em>assignment expression</em>, which means to assign the result of the <code>b * 2</code> expression to the variable <code>a</code> (more on assignments later)</li>
+</ul>
+<p>A general expression that stands alone is also called an <em>expression statement</em>, such as the following:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">b <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></code></pre></div>
+<p>This flavor of expression statement is not very common or useful, as generally it wouldn't have any effect on the running of the program -- it would retrieve the value of <code>b</code> and multiply it by <code>2</code>, but then wouldn't do anything with that result.</p>
+<p>A more common expression statement is a <em>call expression</em> statement (see &quot;Functions&quot;), as the entire statement is the function call expression itself:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="at">alert</span>( a )<span class="op">;</span></code></pre></div>
+<h3 id="executing-a-program">Executing a Program</h3>
+<p>How do those collections of programming statements tell the computer what to do? The program needs to be <em>executed</em>, also referred to as <em>running the program</em>.</p>
+<p>Statements like <code>a = b * 2</code> are helpful for developers when reading and writing, but are not actually in a form the computer can directly understand. So a special utility on the computer (either an <em>interpreter</em> or a <em>compiler</em>) is used to translate the code you write into commands a computer can understand.</p>
+<p>For some computer languages, this translation of commands is typically done from top to bottom, line by line, every time the program is run, which is usually called <em>interpreting</em> the code.</p>
+<p>For other languages, the translation is done ahead of time, called <em>compiling</em> the code, so when the program <em>runs</em> later, what's running is actually the already compiled computer instructions ready to go.</p>
+<p>It's typically asserted that JavaScript is <em>interpreted</em>, because your JavaScript source code is processed each time it's run. But that's not entirely accurate. The JavaScript engine actually <em>compiles</em> the program on the fly and then immediately runs the compiled code.</p>
+<p><strong>Note:</strong> For more information on JavaScript compiling, see the first two chapters of the <em>Scope &amp; Closures</em> title of this series.</p>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>This chapter is going to introduce each programming concept with simple snippets of code, all written in JavaScript (obviously!).</p>
+<p>It cannot be emphasized enough: while you go through this chapter -- and you may need to spend the time to go over it several times -- you should practice each of these concepts by typing the code yourself. The easiest way to do that is to open up the developer tools console in your nearest browser (Firefox, Chrome, IE, etc.).</p>
+<p><strong>Tip:</strong> Typically, you can launch the developer console with a keyboard shortcut or from a menu item. For more detailed information about launching and using the console in your favorite browser, see &quot;Mastering The Developer Tools Console&quot; (http://blog.teamtreehouse.com/mastering-developer-tools-console). To type multiple lines into the console at once, use <code>&lt;shift&gt; + &lt;enter&gt;</code> to move to the next new line. Once you hit <code>&lt;enter&gt;</code> by itself, the console will run everything you've just typed.</p>
+<p>Let's get familiar with the process of running code in the console. First, I suggest opening up an empty tab in your browser. I prefer to do this by typing <code>about:blank</code> into the address bar. Then, make sure your developer console is open, as we just mentioned.</p>
+<p>Now, type this code and see how it runs:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">a <span class="op">=</span> <span class="dv">21</span><span class="op">;</span>
+
+b <span class="op">=</span> a <span class="op">*</span> <span class="dv">2</span><span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( b )<span class="op">;</span></code></pre></div>
+<p>Typing the preceding code into the console in Chrome should produce something like the following:</p>
+<p><img src="fig1.png" width="500"/></p>
+<p>Go on, try it. The best way to learn programming is to start coding!</p>
+<h3 id="output">Output</h3>
+<p>In the previous code snippet, we used <code>console.log(..)</code>. Briefly, let's look at what that line of code is all about.</p>
+<p>You may have guessed, but that's exactly how we print text (aka <em>output</em> to the user) in the developer console. There are two characteristics of that statement that we should explain.</p>
+<p>First, the <code>log( b )</code> part is referred to as a function call (see &quot;Functions&quot;). What's happening is we're handing the <code>b</code> variable to that function, which asks it to take the value of <code>b</code> and print it to the console.</p>
+<p>Second, the <code>console.</code> part is an object reference where the <code>log(..)</code> function is located. We cover objects and their properties in more detail in Chapter 2.</p>
+<p>Another way of creating output that you can see is to run an <code>alert(..)</code> statement. For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="at">alert</span>( b )<span class="op">;</span></code></pre></div>
+<p>If you run that, you'll notice that instead of printing the output to the console, it shows a popup &quot;OK&quot; box with the contents of the <code>b</code> variable. However, using <code>console.log(..)</code> is generally going to make learning about coding and running your programs in the console easier than using <code>alert(..)</code>, because you can output many values at once without interrupting the browser interface.</p>
+<p>For this book, we'll use <code>console.log(..)</code> for output.</p>
+<h3 id="input">Input</h3>
+<p>While we're discussing output, you may also wonder about <em>input</em> (i.e., receiving information from the user).</p>
+<p>The most common way that happens is for the HTML page to show form elements (like text boxes) to a user that they can type into, and then using JS to read those values into your program's variables.</p>
+<p>But there's an easier way to get input for simple learning and demonstration purposes such as what you'll be doing throughout this book. Use the <code>prompt(..)</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">age <span class="op">=</span> <span class="at">prompt</span>( <span class="st">&quot;Please tell me your age:&quot;</span> )<span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( age )<span class="op">;</span></code></pre></div>
+<p>As you may have guessed, the message you pass to <code>prompt(..)</code> -- in this case, <code>&quot;Please tell me your age:&quot;</code> -- is printed into the popup.</p>
+<p>This should look similar to the following:</p>
+<p><img src="fig2.png" width="500"/></p>
+<p>Once you submit the input text by clicking &quot;OK,&quot; you'll observe that the value you typed is stored in the <code>age</code> variable, which we then <em>output</em> with <code>console.log(..)</code>:</p>
+<p><img src="fig3.png" width="500"/></p>
+<p>To keep things simple while we're learning basic programming concepts, the examples in this book will not require input. But now that you've seen how to use <code>prompt(..)</code>, if you want to challenge yourself you can try to use input in your explorations of the examples.</p>
+<h2 id="operators">Operators</h2>
+<p>Operators are how we perform actions on variables and values. We've already seen two JavaScript operators, the <code>=</code> and the <code>*</code>.</p>
+<p>The <code>*</code> operator performs mathematic multiplication. Simple enough, right?</p>
+<p>The <code>=</code> equals operator is used for <em>assignment</em> -- we first calculate the value on the <em>right-hand side</em> (source value) of the <code>=</code> and then put it into the variable that we specify on the <em>left-hand side</em> (target variable).</p>
+<p><strong>Warning:</strong> This may seem like a strange reverse order to specify assignment. Instead of <code>a = 42</code>, some might prefer to flip the order so the source value is on the left and the target variable is on the right, like <code>42 -&gt; a</code> (this is not valid JavaScript!). Unfortunately, the <code>a = 42</code> ordered form, and similar variations, is quite prevalent in modern programming languages. If it feels unnatural, just spend some time rehearsing that ordering in your mind to get accustomed to it.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">a <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>
+b <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></code></pre></div>
+<p>Here, we assign the <code>2</code> value to the <code>a</code> variable. Then, we get the value of the <code>a</code> variable (still <code>2</code>), add <code>1</code> to it resulting in the value <code>3</code>, then store that value in the <code>b</code> variable.</p>
+<p>While not technically an operator, you'll need the keyword <code>var</code> in every program, as it's the primary way you <em>declare</em> (aka <em>create</em>) <em>var</em>iables (see &quot;Variables&quot;).</p>
+<p>You should always declare the variable by name before you use it. But you only need to declare a variable once for each <em>scope</em> (see &quot;Scope&quot;); it can be used as many times after that as needed. For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="dv">20</span><span class="op">;</span>
+
+a <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>
+a <span class="op">=</span> a <span class="op">*</span> <span class="dv">2</span><span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>   <span class="co">// 42</span></code></pre></div>
+<p>Here are some of the most common operators in JavaScript:</p>
+<ul>
+<li>Assignment: <code>=</code> as in <code>a = 2</code>.</li>
+<li>Math: <code>+</code> (addition), <code>-</code> (subtraction), <code>*</code> (multiplication), and <code>/</code> (division), as in <code>a * 3</code>.</li>
+<li>Compound Assignment: <code>+=</code>, <code>-=</code>, <code>*=</code>, and <code>/=</code> are compound operators that combine a math operation with assignment, as in <code>a += 2</code> (same as <code>a = a + 2</code>).</li>
+<li>Increment/Decrement: <code>++</code> (increment), <code>--</code> (decrement), as in <code>a++</code> (similar to <code>a = a + 1</code>).</li>
+<li>Object Property Access: <code>.</code> as in <code>console.log()</code>.</li>
+</ul>
+<p>Objects are values that hold other values at specific named locations called properties. <code>obj.a</code> means an object value called <code>obj</code> with a property of the name <code>a</code>. Properties can alternatively be accessed as <code>obj[&quot;a&quot;]</code>. See Chapter 2. * Equality: <code>==</code> (loose-equals), <code>===</code> (strict-equals), <code>!=</code> (loose not-equals), <code>!==</code> (strict not-equals), as in <code>a == b</code>.</p>
+<p>See &quot;Values &amp; Types&quot; and Chapter 2. * Comparison: <code>&lt;</code> (less than), <code>&gt;</code> (greater than), <code>&lt;=</code> (less than or loose-equals), <code>&gt;=</code> (greater than or loose-equals), as in <code>a &lt;= b</code>.</p>
+<p>See &quot;Values &amp; Types&quot; and Chapter 2. * Logical: <code>&amp;&amp;</code> (and), <code>||</code> (or), as in <code>a || b</code> that selects either <code>a</code> <em>or</em> <code>b</code>.</p>
+<p>These operators are used to express compound conditionals (see &quot;Conditionals&quot;), like if either <code>a</code> <em>or</em> <code>b</code> is true.</p>
+<p><strong>Note:</strong> For much more detail, and coverage of operators not mentioned here, see the Mozilla Developer Network (MDN)'s &quot;Expressions and Operators&quot; (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators).</p>
+<h2 id="values-types">Values &amp; Types</h2>
+<p>If you ask an employee at a phone store how much a certain phone costs, and they say &quot;ninety-nine, ninety-nine&quot; (i.e., $99.99), they're giving you an actual numeric dollar figure that represents what you'll need to pay (plus taxes) to buy it. If you want to buy two of those phones, you can easily do the mental math to double that value to get $199.98 for your base cost.</p>
+<p>If that same employee picks up another similar phone but says it's &quot;free&quot; (perhaps with air quotes), they're not giving you a number, but instead another kind of representation of your expected cost ($0.00) -- the word &quot;free.&quot;</p>
+<p>When you later ask if the phone includes a charger, that answer could only have been either &quot;yes&quot; or &quot;no.&quot;</p>
+<p>In very similar ways, when you express values in a program, you choose different representations for those values based on what you plan to do with them.</p>
+<p>These different representations for values are called <em>types</em> in programming terminology. JavaScript has built-in types for each of these so called <em>primitive</em> values:</p>
+<ul>
+<li>When you need to do math, you want a <code>number</code>.</li>
+<li>When you need to print a value on the screen, you need a <code>string</code> (one or more characters, words, sentences).</li>
+<li>When you need to make a decision in your program, you need a <code>boolean</code> (<code>true</code> or <code>false</code>).</li>
+</ul>
+<p>Values that are included directly in the source code are called <em>literals</em>. <code>string</code> literals are surrounded by double quotes <code>&quot;...&quot;</code> or single quotes (<code>'...'</code>) -- the only difference is stylistic preference. <code>number</code> and <code>boolean</code> literals are just presented as is (i.e., <code>42</code>, <code>true</code>, etc.).</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="st">&quot;I am a string&quot;</span><span class="op">;</span>
+<span class="st">&#39;I am also a string&#39;</span><span class="op">;</span>
+
+<span class="dv">42</span><span class="op">;</span>
+
+<span class="kw">true</span><span class="op">;</span>
+<span class="kw">false</span><span class="op">;</span></code></pre></div>
+<p>Beyond <code>string</code>/<code>number</code>/<code>boolean</code> value types, it's common for programming languages to provide <em>arrays</em>, <em>objects</em>, <em>functions</em>, and more. We'll cover much more about values and types throughout this chapter and the next.</p>
+<h3 id="converting-between-types">Converting Between Types</h3>
+<p>If you have a <code>number</code> but need to print it on the screen, you need to convert the value to a <code>string</code>, and in JavaScript this conversion is called &quot;coercion.&quot; Similarly, if someone enters a series of numeric characters into a form on an ecommerce page, that's a <code>string</code>, but if you need to then use that value to do math operations, you need to <em>coerce</em> it to a <code>number</code>.</p>
+<p>JavaScript provides several different facilities for forcibly coercing between <em>types</em>. For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="st">&quot;42&quot;</span><span class="op">;</span>
+<span class="kw">var</span> b <span class="op">=</span> <span class="at">Number</span>( a )<span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>   <span class="co">// &quot;42&quot;</span>
+<span class="va">console</span>.<span class="at">log</span>( b )<span class="op">;</span>   <span class="co">// 42</span></code></pre></div>
+<p>Using <code>Number(..)</code> (a built-in function) as shown is an <em>explicit</em> coercion from any other type to the <code>number</code> type. That should be pretty straightforward.</p>
+<p>But a controversial topic is what happens when you try to compare two values that are not already of the same type, which would require <em>implicit</em> coercion.</p>
+<p>When comparing the string <code>&quot;99.99&quot;</code> to the number <code>99.99</code>, most people would agree they are equivalent. But they're not exactly the same, are they? It's the same value in two different representations, two different <em>types</em>. You could say they're &quot;loosely equal,&quot; couldn't you?</p>
+<p>To help you out in these common situations, JavaScript will sometimes kick in and <em>implicitly</em> coerce values to the matching types.</p>
+<p>So if you use the <code>==</code> loose equals operator to make the comparison <code>&quot;99.99&quot; == 99.99</code>, JavaScript will convert the left-hand side <code>&quot;99.99&quot;</code> to its <code>number</code> equivalent <code>99.99</code>. The comparison then becomes <code>99.99 == 99.99</code>, which is of course <code>true</code>.</p>
+<p>While designed to help you, implicit coercion can create confusion if you haven't taken the time to learn the rules that govern its behavior. Most JS developers never have, so the common feeling is that implicit coercion is confusing and harms programs with unexpected bugs, and should thus be avoided. It's even sometimes called a flaw in the design of the language.</p>
+<p>However, implicit coercion is a mechanism that <em>can be learned</em>, and moreover <em>should be learned</em> by anyone wishing to take JavaScript programming seriously. Not only is it not confusing once you learn the rules, it can actually make your programs better! The effort is well worth it.</p>
+<p><strong>Note:</strong> For more information on coercion, see Chapter 2 of this title and Chapter 4 of the <em>Types &amp; Grammar</em> title of this series.</p>
+<h2 id="code-comments">Code Comments</h2>
+<p>The phone store employee might jot down some notes on the features of a newly released phone or on the new plans her company offers. These notes are only for the employee -- they're not for customers to read. Nevertheless, these notes help the employee do her job better by documenting the hows and whys of what she should tell customers.</p>
+<p>One of the most important lessons you can learn about writing code is that it's not just for the computer. Code is every bit as much, if not more, for the developer as it is for the compiler.</p>
+<p>Your computer only cares about machine code, a series of binary 0s and 1s, that comes from <em>compilation</em>. There's a nearly infinite number of programs you could write that yield the same series of 0s and 1s. The choices you make about how to write your program matter -- not only to you, but to your other team members and even to your future self.</p>
+<p>You should strive not just to write programs that work correctly, but programs that make sense when examined. You can go a long way in that effort by choosing good names for your variables (see &quot;Variables&quot;) and functions (see &quot;Functions&quot;).</p>
+<p>But another important part is code comments. These are bits of text in your program that are inserted purely to explain things to a human. The interpreter/compiler will always ignore these comments.</p>
+<p>There are lots of opinions on what makes well-commented code; we can't really define absolute universal rules. But some observations and guidelines are quite useful:</p>
+<ul>
+<li>Code without comments is suboptimal.</li>
+<li>Too many comments (one per line, for example) is probably a sign of poorly written code.</li>
+<li>Comments should explain <em>why</em>, not <em>what</em>. They can optionally explain <em>how</em> if that's particularly confusing.</li>
+</ul>
+<p>In JavaScript, there are two types of comments possible: a single-line comment and a multiline comment.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// This is a single-line comment</span>
+
+<span class="co">/* But this is</span>
+<span class="co">       a multiline</span>
+<span class="co">             comment.</span>
+<span class="co">                      */</span></code></pre></div>
+<p>The <code>//</code> single-line comment is appropriate if you're going to put a comment right above a single statement, or even at the end of a line. Everything on the line after the <code>//</code> is treated as the comment (and thus ignored by the compiler), all the way to the end of the line. There's no restriction to what can appear inside a single-line comment.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="dv">42</span><span class="op">;</span>     <span class="co">// 42 is the meaning of life</span></code></pre></div>
+<p>The <code>/* .. */</code> multiline comment is appropriate if you have several lines worth of explanation to make in your comment.</p>
+<p>Here's a common usage of multiline comments:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">/* The following value is used because</span>
+<span class="co">   it has been shown that it answers</span>
+<span class="co">   every question in the universe. */</span>
+<span class="kw">var</span> a <span class="op">=</span> <span class="dv">42</span><span class="op">;</span></code></pre></div>
+<p>It can also appear anywhere on a line, even in the middle of a line, because the <code>*/</code> ends it. For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="co">/* arbitrary value */</span> <span class="dv">42</span><span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>   <span class="co">// 42</span></code></pre></div>
+<p>The only thing that cannot appear inside a multiline comment is a <code>*/</code>, because that would be interpreted to end the comment.</p>
+<p>You will definitely want to begin your learning of programming by starting off with the habit of commenting code. Throughout the rest of this chapter, you'll see I use comments to explain things, so do the same in your own practice. Trust me, everyone who reads your code will thank you!</p>
+<h2 id="variables">Variables</h2>
+<p>Most useful programs need to track a value as it changes over the course of the program, undergoing different operations as called for by your program's intended tasks.</p>
+<p>The easiest way to go about that in your program is to assign a value to a symbolic container, called a <em>variable</em> -- so called because the value in this container can <em>vary</em> over time as needed.</p>
+<p>In some programming languages, you declare a variable (container) to hold a specific type of value, such as <code>number</code> or <code>string</code>. <em>Static typing</em>, otherwise known as <em>type enforcement</em>, is typically cited as a benefit for program correctness by preventing unintended value conversions.</p>
+<p>Other languages emphasize types for values instead of variables. <em>Weak typing</em>, otherwise known as <em>dynamic typing</em>, allows a variable to hold any type of value at any time. It's typically cited as a benefit for program flexibility by allowing a single variable to represent a value no matter what type form that value may take at any given moment in the program's logic flow.</p>
+<p>JavaScript uses the latter approach, <em>dynamic typing</em>, meaning variables can hold values of any <em>type</em> without any <em>type</em> enforcement.</p>
+<p>As mentioned earlier, we declare a variable using the <code>var</code> statement -- notice there's no other <em>type</em> information in the declaration. Consider this simple program:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+amount <span class="op">=</span> amount <span class="op">*</span> <span class="dv">2</span><span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( amount )<span class="op">;</span>      <span class="co">// 199.98</span>
+
+<span class="co">// convert `amount` to a string, and</span>
+<span class="co">// add &quot;$&quot; on the beginning</span>
+amount <span class="op">=</span> <span class="st">&quot;$&quot;</span> <span class="op">+</span> <span class="at">String</span>( amount )<span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( amount )<span class="op">;</span>      <span class="co">// &quot;$199.98&quot;</span></code></pre></div>
+<p>The <code>amount</code> variable starts out holding the number <code>99.99</code>, and then holds the <code>number</code> result of <code>amount * 2</code>, which is <code>199.98</code>.</p>
+<p>The first <code>console.log(..)</code> command has to <em>implicitly</em> coerce that <code>number</code> value to a <code>string</code> to print it out.</p>
+<p>Then the statement <code>amount = &quot;$&quot; + String(amount)</code> <em>explicitly</em> coerces the <code>199.98</code> value to a <code>string</code> and adds a <code>&quot;$&quot;</code> character to the beginning. At this point, <code>amount</code> now holds the <code>string</code> value <code>&quot;$199.98&quot;</code>, so the second <code>console.log(..)</code> statement doesn't need to do any coercion to print it out.</p>
+<p>JavaScript developers will note the flexibility of using the <code>amount</code> variable for each of the <code>99.99</code>, <code>199.98</code>, and the <code>&quot;$199.98&quot;</code> values. Static-typing enthusiasts would prefer a separate variable like <code>amountStr</code> to hold the final <code>&quot;$199.98&quot;</code> representation of the value, because it's a different type.</p>
+<p>Either way, you'll note that <code>amount</code> holds a running value that changes over the course of the program, illustrating the primary purpose of variables: managing program <em>state</em>.</p>
+<p>In other words, <em>state</em> is tracking the changes to values as your program runs.</p>
+<p>Another common usage of variables is for centralizing value setting. This is more typically called <em>constants</em>, when you declare a variable with a value and intend for that value to <em>not change</em> throughout the program.</p>
+<p>You declare these <em>constants</em>, often at the top of a program, so that it's convenient for you to have one place to go to alter a value if you need to. By convention, JavaScript variables as constants are usually capitalized, with underscores <code>_</code> between multiple words.</p>
+<p>Here's a silly example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> TAX_RATE <span class="op">=</span> <span class="fl">0.08</span><span class="op">;</span>    <span class="co">// 8% sales tax</span>
+
+<span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+amount <span class="op">=</span> amount <span class="op">*</span> <span class="dv">2</span><span class="op">;</span>
+
+amount <span class="op">=</span> amount <span class="op">+</span> (amount <span class="op">*</span> TAX_RATE)<span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( amount )<span class="op">;</span>              <span class="co">// 215.9784</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="va">amount</span>.<span class="at">toFixed</span>( <span class="dv">2</span> ) )<span class="op">;</span> <span class="co">// &quot;215.98&quot;</span></code></pre></div>
+<p><strong>Note:</strong> Similar to how <code>console.log(..)</code> is a function <code>log(..)</code> accessed as an object property on the <code>console</code> value, <code>toFixed(..)</code> here is a function that can be accessed on <code>number</code> values. JavaScript <code>number</code>s aren't automatically formatted for dollars -- the engine doesn't know what your intent is and there's no type for currency. <code>toFixed(..)</code> lets us specify how many decimal places we'd like the <code>number</code> rounded to, and it produces the <code>string</code> as necessary.</p>
+<p>The <code>TAX_RATE</code> variable is only <em>constant</em> by convention -- there's nothing special in this program that prevents it from being changed. But if the city raises the sales tax rate to 9%, we can still easily update our program by setting the <code>TAX_RATE</code> assigned value to <code>0.09</code> in one place, instead of finding many occurrences of the value <code>0.08</code> strewn throughout the program and updating all of them.</p>
+<p>The newest version of JavaScript at the time of this writing (commonly called &quot;ES6&quot;) includes a new way to declare <em>constants</em>, by using <code>const</code> instead of <code>var</code>:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// as of ES6:</span>
+<span class="kw">const</span> TAX_RATE <span class="op">=</span> <span class="fl">0.08</span><span class="op">;</span>
+
+<span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+<span class="co">// ..</span></code></pre></div>
+<p>Constants are useful just like variables with unchanged values, except that constants also prevent accidentally changing value somewhere else after the initial setting. If you tried to assign any different value to <code>TAX_RATE</code> after that first declaration, your program would reject the change (and in strict mode, fail with an error -- see &quot;Strict Mode&quot; in Chapter 2).</p>
+<p>By the way, that kind of &quot;protection&quot; against mistakes is similar to the static-typing type enforcement, so you can see why static types in other languages can be attractive!</p>
+<p><strong>Note:</strong> For more information about how different values in variables can be used in your programs, see the <em>Types &amp; Grammar</em> title of this series.</p>
+<h2 id="blocks">Blocks</h2>
+<p>The phone store employee must go through a series of steps to complete the checkout as you buy your new phone.</p>
+<p>Similarly, in code we often need to group a series of statements together, which we often call a <em>block</em>. In JavaScript, a block is defined by wrapping one or more statements inside a curly-brace pair <code>{ .. }</code>. Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+<span class="co">// a general block</span>
+<span class="op">{</span>
+    amount <span class="op">=</span> amount <span class="op">*</span> <span class="dv">2</span><span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>( amount )<span class="op">;</span>  <span class="co">// 199.98</span>
+<span class="op">}</span></code></pre></div>
+<p>This kind of standalone <code>{ .. }</code> general block is valid, but isn't as commonly seen in JS programs. Typically, blocks are attached to some other control statement, such as an <code>if</code> statement (see &quot;Conditionals&quot;) or a loop (see &quot;Loops&quot;). For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+<span class="co">// is amount big enough?</span>
+<span class="cf">if</span> (amount <span class="op">&gt;</span> <span class="dv">10</span>) <span class="op">{</span>          <span class="co">// &lt;-- block attached to `if`</span>
+    amount <span class="op">=</span> amount <span class="op">*</span> <span class="dv">2</span><span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>( amount )<span class="op">;</span>  <span class="co">// 199.98</span>
+<span class="op">}</span></code></pre></div>
+<p>We'll explain <code>if</code> statements in the next section, but as you can see, the <code>{ .. }</code> block with its two statements is attached to <code>if (amount &gt; 10)</code>; the statements inside the block will only be processed if the conditional passes.</p>
+<p><strong>Note:</strong> Unlike most other statements like <code>console.log(amount);</code>, a block statement does not need a semicolon (<code>;</code>) to conclude it.</p>
+<h2 id="conditionals">Conditionals</h2>
+<p>&quot;Do you want to add on the extra screen protectors to your purchase, for $9.99?&quot; The helpful phone store employee has asked you to make a decision. And you may need to first consult the current <em>state</em> of your wallet or bank account to answer that question. But obviously, this is just a simple &quot;yes or no&quot; question.</p>
+<p>There are quite a few ways we can express <em>conditionals</em> (aka decisions) in our programs.</p>
+<p>The most common one is the <code>if</code> statement. Essentially, you're saying, &quot;<em>If</em> this condition is true, do the following...&quot;. For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> bank_balance <span class="op">=</span> <span class="fl">302.13</span><span class="op">;</span>
+<span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+<span class="cf">if</span> (amount <span class="op">&lt;</span> bank_balance) <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( <span class="st">&quot;I want to buy this phone!&quot;</span> )<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>The <code>if</code> statement requires an expression in between the parentheses <code>( )</code> that can be treated as either <code>true</code> or <code>false</code>. In this program, we provided the expression <code>amount &lt; bank_balance</code>, which indeed will either evaluate to <code>true</code> or <code>false</code> depending on the amount in the <code>bank_balance</code> variable.</p>
+<p>You can even provide an alternative if the condition isn't true, called an <code>else</code> clause. Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">const</span> ACCESSORY_PRICE <span class="op">=</span> <span class="fl">9.99</span><span class="op">;</span>
+
+<span class="kw">var</span> bank_balance <span class="op">=</span> <span class="fl">302.13</span><span class="op">;</span>
+<span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+amount <span class="op">=</span> amount <span class="op">*</span> <span class="dv">2</span><span class="op">;</span>
+
+<span class="co">// can we afford the extra purchase?</span>
+<span class="cf">if</span> ( amount <span class="op">&lt;</span> bank_balance ) <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( <span class="st">&quot;I&#39;ll take the accessory!&quot;</span> )<span class="op">;</span>
+    amount <span class="op">=</span> amount <span class="op">+</span> ACCESSORY_PRICE<span class="op">;</span>
+<span class="op">}</span>
+<span class="co">// otherwise:</span>
+<span class="cf">else</span> <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( <span class="st">&quot;No, thanks.&quot;</span> )<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>Here, if <code>amount &lt; bank_balance</code> is <code>true</code>, we'll print out <code>&quot;I'll take the accessory!&quot;</code> and add the <code>9.99</code> to our <code>amount</code> variable. Otherwise, the <code>else</code> clause says we'll just politely respond with <code>&quot;No, thanks.&quot;</code> and leave <code>amount</code> unchanged.</p>
+<p>As we discussed in &quot;Values &amp; Types&quot; earlier, values that aren't already of an expected type are often coerced to that type. The <code>if</code> statement expects a <code>boolean</code>, but if you pass it something that's not already <code>boolean</code>, coercion will occur.</p>
+<p>JavaScript defines a list of specific values that are considered &quot;falsy&quot; because when coerced to a <code>boolean</code>, they become <code>false</code> -- these include values like <code>0</code> and <code>&quot;&quot;</code>. Any other value not on the &quot;falsy&quot; list is automatically &quot;truthy&quot; -- when coerced to a <code>boolean</code> they become <code>true</code>. Truthy values include things like <code>99.99</code> and <code>&quot;free&quot;</code>. See &quot;Truthy &amp; Falsy&quot; in Chapter 2 for more information.</p>
+<p><em>Conditionals</em> exist in other forms besides the <code>if</code>. For example, the <code>switch</code> statement can be used as a shorthand for a series of <code>if..else</code> statements (see Chapter 2). Loops (see &quot;Loops&quot;) use a <em>conditional</em> to determine if the loop should keep going or stop.</p>
+<p><strong>Note:</strong> For deeper information about the coercions that can occur implicitly in the test expressions of <em>conditionals</em>, see Chapter 4 of the <em>Types &amp; Grammar</em> title of this series.</p>
+<h2 id="loops">Loops</h2>
+<p>During busy times, there's a waiting list for customers who need to speak to the phone store employee. While there's still people on that list, she just needs to keep serving the next customer.</p>
+<p>Repeating a set of actions until a certain condition fails -- in other words, repeating only while the condition holds -- is the job of programming loops; loops can take different forms, but they all satisfy this basic behavior.</p>
+<p>A loop includes the test condition as well as a block (typically as <code>{ .. }</code>). Each time the loop block executes, that's called an <em>iteration</em>.</p>
+<p>For example, the <code>while</code> loop and the <code>do..while</code> loop forms illustrate the concept of repeating a block of statements until a condition no longer evaluates to <code>true</code>:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="cf">while</span> (numOfCustomers <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( <span class="st">&quot;How may I help you?&quot;</span> )<span class="op">;</span>
+
+    <span class="co">// help the customer...</span>
+
+    numOfCustomers <span class="op">=</span> numOfCustomers <span class="op">-</span> <span class="dv">1</span><span class="op">;</span>
+<span class="op">}</span>
+
+<span class="co">// versus:</span>
+
+<span class="cf">do</span> <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( <span class="st">&quot;How may I help you?&quot;</span> )<span class="op">;</span>
+
+    <span class="co">// help the customer...</span>
+
+    numOfCustomers <span class="op">=</span> numOfCustomers <span class="op">-</span> <span class="dv">1</span><span class="op">;</span>
+<span class="op">}</span> <span class="cf">while</span> (numOfCustomers <span class="op">&gt;</span> <span class="dv">0</span>)<span class="op">;</span></code></pre></div>
+<p>The only practical difference between these loops is whether the conditional is tested before the first iteration (<code>while</code>) or after the first iteration (<code>do..while</code>).</p>
+<p>In either form, if the conditional tests as <code>false</code>, the next iteration will not run. That means if the condition is initially <code>false</code>, a <code>while</code> loop will never run, but a <code>do..while</code> loop will run just the first time.</p>
+<p>Sometimes you are looping for the intended purpose of counting a certain set of numbers, like from <code>0</code> to <code>9</code> (ten numbers). You can do that by setting a loop iteration variable like <code>i</code> at value <code>0</code> and incrementing it by <code>1</code> each iteration.</p>
+<p><strong>Warning:</strong> For a variety of historical reasons, programming languages almost always count things in a zero-based fashion, meaning starting with <code>0</code> instead of <code>1</code>. If you're not familiar with that mode of thinking, it can be quite confusing at first. Take some time to practice counting starting with <code>0</code> to become more comfortable with it!</p>
+<p>The conditional is tested on each iteration, much as if there is an implied <code>if</code> statement inside the loop.</p>
+<p>We can use JavaScript's <code>break</code> statement to stop a loop. Also, we can observe that it's awfully easy to create a loop that would otherwise run forever without a <code>break</code>ing mechanism.</p>
+<p>Let's illustrate:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>
+
+<span class="co">// a `while..true` loop would run forever, right?</span>
+<span class="cf">while</span> (<span class="kw">true</span>) <span class="op">{</span>
+    <span class="co">// stop the loop?</span>
+    <span class="cf">if</span> ((i <span class="op">&lt;=</span> <span class="dv">9</span>) <span class="op">===</span> <span class="kw">false</span>) <span class="op">{</span>
+        <span class="cf">break</span><span class="op">;</span>
+    <span class="op">}</span>
+
+    <span class="va">console</span>.<span class="at">log</span>( i )<span class="op">;</span>
+    i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>
+<span class="op">}</span>
+<span class="co">// 0 1 2 3 4 5 6 7 8 9</span></code></pre></div>
+<p><strong>Warning:</strong> This is not necessarily a practical form you'd want to use for your loops. It's presented here for illustration purposes only.</p>
+<p>While a <code>while</code> (or <code>do..while</code>) can accomplish the task manually, there's another syntactic form called a <code>for</code> loop for just that purpose:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">9</span><span class="op">;</span> i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span>) <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( i )<span class="op">;</span>
+<span class="op">}</span>
+<span class="co">// 0 1 2 3 4 5 6 7 8 9</span></code></pre></div>
+<p>As you can see, in both cases the conditional <code>i &lt;= 9</code> is <code>true</code> for the first 10 iterations (<code>i</code> of values <code>0</code> through <code>9</code>) of either loop form, but becomes <code>false</code> once <code>i</code> is value <code>10</code>.</p>
+<p>The <code>for</code> loop has three clauses: the initialization clause (<code>var i=0</code>), the conditional test clause (<code>i &lt;= 9</code>), and the update clause (<code>i = i + 1</code>). So if you're going to do counting with your loop iterations, <code>for</code> is a more compact and often easier form to understand and write.</p>
+<p>There are other specialized loop forms that are intended to iterate over specific values, such as the properties of an object (see Chapter 2) where the implied conditional test is just whether all the properties have been processed. The &quot;loop until a condition fails&quot; concept holds no matter what the form of the loop.</p>
+<h2 id="functions">Functions</h2>
+<p>The phone store employee probably doesn't carry around a calculator to figure out the taxes and final purchase amount. That's a task she needs to define once and reuse over and over again. Odds are, the company has a checkout register (computer, tablet, etc.) with those &quot;functions&quot; built in.</p>
+<p>Similarly, your program will almost certainly want to break up the code's tasks into reusable pieces, instead of repeatedly repeating yourself repetitiously (pun intended!). The way to do this is to define a <code>function</code>.</p>
+<p>A function is generally a named section of code that can be &quot;called&quot; by name, and the code inside it will be run each time. Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">printAmount</span>() <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( <span class="va">amount</span>.<span class="at">toFixed</span>( <span class="dv">2</span> ) )<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+<span class="at">printAmount</span>()<span class="op">;</span> <span class="co">// &quot;99.99&quot;</span>
+
+amount <span class="op">=</span> amount <span class="op">*</span> <span class="dv">2</span><span class="op">;</span>
+
+<span class="at">printAmount</span>()<span class="op">;</span> <span class="co">// &quot;199.98&quot;</span></code></pre></div>
+<p>Functions can optionally take arguments (aka parameters) -- values you pass in. And they can also optionally return a value back.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">printAmount</span>(amt) <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( <span class="va">amt</span>.<span class="at">toFixed</span>( <span class="dv">2</span> ) )<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">function</span> <span class="at">formatAmount</span>() <span class="op">{</span>
+    <span class="cf">return</span> <span class="st">&quot;$&quot;</span> <span class="op">+</span> <span class="va">amount</span>.<span class="at">toFixed</span>( <span class="dv">2</span> )<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+<span class="at">printAmount</span>( amount <span class="op">*</span> <span class="dv">2</span> )<span class="op">;</span>      <span class="co">// &quot;199.98&quot;</span>
+
+amount <span class="op">=</span> <span class="at">formatAmount</span>()<span class="op">;</span>
+<span class="va">console</span>.<span class="at">log</span>( amount )<span class="op">;</span>          <span class="co">// &quot;$99.99&quot;</span></code></pre></div>
+<p>The function <code>printAmount(..)</code> takes a parameter that we call <code>amt</code>. The function <code>formatAmount()</code> returns a value. Of course, you can also combine those two techniques in the same function.</p>
+<p>Functions are often used for code that you plan to call multiple times, but they can also be useful just to organize related bits of code into named collections, even if you only plan to call them once.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">const</span> TAX_RATE <span class="op">=</span> <span class="fl">0.08</span><span class="op">;</span>
+
+<span class="kw">function</span> <span class="at">calculateFinalPurchaseAmount</span>(amt) <span class="op">{</span>
+    <span class="co">// calculate the new amount with the tax</span>
+    amt <span class="op">=</span> amt <span class="op">+</span> (amt <span class="op">*</span> TAX_RATE)<span class="op">;</span>
+
+    <span class="co">// return the new amount</span>
+    <span class="cf">return</span> amt<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">var</span> amount <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+
+amount <span class="op">=</span> <span class="at">calculateFinalPurchaseAmount</span>( amount )<span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( <span class="va">amount</span>.<span class="at">toFixed</span>( <span class="dv">2</span> ) )<span class="op">;</span>     <span class="co">// &quot;107.99&quot;</span></code></pre></div>
+<p>Although <code>calculateFinalPurchaseAmount(..)</code> is only called once, organizing its behavior into a separate named function makes the code that uses its logic (the <code>amount = calculateFinal...</code> statement) cleaner. If the function had more statements in it, the benefits would be even more pronounced.</p>
+<h3 id="scope">Scope</h3>
+<p>If you ask the phone store employee for a phone model that her store doesn't carry, she will not be able to sell you the phone you want. She only has access to the phones in her store's inventory. You'll have to try another store to see if you can find the phone you're looking for.</p>
+<p>Programming has a term for this concept: <em>scope</em> (technically called <em>lexical scope</em>). In JavaScript, each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name. Only code inside that function can access that function's <em>scoped</em> variables.</p>
+<p>A variable name has to be unique within the same scope -- there can't be two different <code>a</code> variables sitting right next to each other. But the same variable name <code>a</code> could appear in different scopes.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">one</span>() <span class="op">{</span>
+    <span class="co">// this `a` only belongs to the `one()` function</span>
+    <span class="kw">var</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">function</span> <span class="at">two</span>() <span class="op">{</span>
+    <span class="co">// this `a` only belongs to the `two()` function</span>
+    <span class="kw">var</span> a <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="at">one</span>()<span class="op">;</span>      <span class="co">// 1</span>
+<span class="at">two</span>()<span class="op">;</span>      <span class="co">// 2</span></code></pre></div>
+<p>Also, a scope can be nested inside another scope, just like if a clown at a birthday party blows up one balloon inside another balloon. If one scope is nested inside another, code inside the innermost scope can access variables from either scope.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">outer</span>() <span class="op">{</span>
+    <span class="kw">var</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
+
+    <span class="kw">function</span> <span class="at">inner</span>() <span class="op">{</span>
+        <span class="kw">var</span> b <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>
+
+        <span class="co">// we can access both `a` and `b` here</span>
+        <span class="va">console</span>.<span class="at">log</span>( a <span class="op">+</span> b )<span class="op">;</span>   <span class="co">// 3</span>
+    <span class="op">}</span>
+
+    <span class="at">inner</span>()<span class="op">;</span>
+
+    <span class="co">// we can only access `a` here</span>
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>           <span class="co">// 1</span>
+<span class="op">}</span>
+
+<span class="at">outer</span>()<span class="op">;</span></code></pre></div>
+<p>Lexical scope rules say that code in one scope can access variables of either that scope or any scope outside of it.</p>
+<p>So, code inside the <code>inner()</code> function has access to both variables <code>a</code> and <code>b</code>, but code in <code>outer()</code> has access only to <code>a</code> -- it cannot access <code>b</code> because that variable is only inside <code>inner()</code>.</p>
+<p>Recall this code snippet from earlier:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">const</span> TAX_RATE <span class="op">=</span> <span class="fl">0.08</span><span class="op">;</span>
+
+<span class="kw">function</span> <span class="at">calculateFinalPurchaseAmount</span>(amt) <span class="op">{</span>
+    <span class="co">// calculate the new amount with the tax</span>
+    amt <span class="op">=</span> amt <span class="op">+</span> (amt <span class="op">*</span> TAX_RATE)<span class="op">;</span>
+
+    <span class="co">// return the new amount</span>
+    <span class="cf">return</span> amt<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>The <code>TAX_RATE</code> constant (variable) is accessible from inside the <code>calculateFinalPurchaseAmount(..)</code> function, even though we didn't pass it in, because of lexical scope.</p>
+<p><strong>Note:</strong> For more information about lexical scope, see the first three chapters of the <em>Scope &amp; Closures</em> title of this series.</p>
+<h2 id="practice">Practice</h2>
+<p>There is absolutely no substitute for practice in learning programming. No amount of articulate writing on my part is alone going to make you a programmer.</p>
+<p>With that in mind, let's try practicing some of the concepts we learned here in this chapter. I'll give the &quot;requirements,&quot; and you try it first. Then consult the code listing below to see how I approached it.</p>
+<ul>
+<li>Write a program to calculate the total price of your phone purchase. You will keep purchasing phones (hint: loop!) until you run out of money in your bank account. You'll also buy accessories for each phone as long as your purchase amount is below your mental spending threshold.</li>
+<li>After you've calculated your purchase amount, add in the tax, then print out the calculated purchase amount, properly formatted.</li>
+<li>Finally, check the amount against your bank account balance to see if you can afford it or not.</li>
+<li>You should set up some constants for the &quot;tax rate,&quot; &quot;phone price,&quot; &quot;accessory price,&quot; and &quot;spending threshold,&quot; as well as a variable for your &quot;bank account balance.&quot;&quot;</li>
+<li>You should define functions for calculating the tax and for formatting the price with a &quot;$&quot; and rounding to two decimal places.</li>
+<li><strong>Bonus Challenge:</strong> Try to incorporate input into this program, perhaps with the <code>prompt(..)</code> covered in &quot;Input&quot; earlier. You may prompt the user for their bank account balance, for example. Have fun and be creative!</li>
+</ul>
+<p>OK, go ahead. Try it. Don't peek at my code listing until you've given it a shot yourself!</p>
+<p><strong>Note:</strong> Because this is a JavaScript book, I'm obviously going to solve the practice exercise in JavaScript. But you can do it in another language for now if you feel more comfortable.</p>
+<p>Here's my JavaScript solution for this exercise:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">const</span> SPENDING_THRESHOLD <span class="op">=</span> <span class="dv">200</span><span class="op">;</span>
+<span class="kw">const</span> TAX_RATE <span class="op">=</span> <span class="fl">0.08</span><span class="op">;</span>
+<span class="kw">const</span> PHONE_PRICE <span class="op">=</span> <span class="fl">99.99</span><span class="op">;</span>
+<span class="kw">const</span> ACCESSORY_PRICE <span class="op">=</span> <span class="fl">9.99</span><span class="op">;</span>
+
+<span class="kw">var</span> bank_balance <span class="op">=</span> <span class="fl">303.91</span><span class="op">;</span>
+<span class="kw">var</span> amount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>
+
+<span class="kw">function</span> <span class="at">calculateTax</span>(amount) <span class="op">{</span>
+    <span class="cf">return</span> amount <span class="op">*</span> TAX_RATE<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">function</span> <span class="at">formatAmount</span>(amount) <span class="op">{</span>
+    <span class="cf">return</span> <span class="st">&quot;$&quot;</span> <span class="op">+</span> <span class="va">amount</span>.<span class="at">toFixed</span>( <span class="dv">2</span> )<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="co">// keep buying phones while you still have money</span>
+<span class="cf">while</span> (amount <span class="op">&lt;</span> bank_balance) <span class="op">{</span>
+    <span class="co">// buy a new phone!</span>
+    amount <span class="op">=</span> amount <span class="op">+</span> PHONE_PRICE<span class="op">;</span>
+
+    <span class="co">// can we afford the accessory?</span>
+    <span class="cf">if</span> (amount <span class="op">&lt;</span> SPENDING_THRESHOLD) <span class="op">{</span>
+        amount <span class="op">=</span> amount <span class="op">+</span> ACCESSORY_PRICE<span class="op">;</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="co">// don&#39;t forget to pay the government, too</span>
+amount <span class="op">=</span> amount <span class="op">+</span> <span class="at">calculateTax</span>( amount )<span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>(
+    <span class="st">&quot;Your purchase: &quot;</span> <span class="op">+</span> <span class="at">formatAmount</span>( amount )
+)<span class="op">;</span>
+<span class="co">// Your purchase: $334.76</span>
+
+<span class="co">// can you actually afford this purchase?</span>
+<span class="cf">if</span> (amount <span class="op">&gt;</span> bank_balance) <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>(
+        <span class="st">&quot;You can&#39;t afford this purchase. :(&quot;</span>
+    )<span class="op">;</span>
+<span class="op">}</span>
+<span class="co">// You can&#39;t afford this purchase. :(</span></code></pre></div>
+<p><strong>Note:</strong> The simplest way to run this JavaScript program is to type it into the developer console of your nearest browser.</p>
+<p>How did you do? It wouldn't hurt to try it again now that you've seen my code. And play around with changing some of the constants to see how the program runs with different values.</p>
+<h2 id="review">Review</h2>
+<p>Learning programming doesn't have to be a complex and overwhelming process. There are just a few basic concepts you need to wrap your head around.</p>
+<p>These act like building blocks. To build a tall tower, you start first by putting block on top of block on top of block. The same goes with programming. Here are some of the essential programming building blocks:</p>
+<ul>
+<li>You need <em>operators</em> to perform actions on values.</li>
+<li>You need values and <em>types</em> to perform different kinds of actions like math on <code>number</code>s or output with <code>string</code>s.</li>
+<li>You need <em>variables</em> to store data (aka <em>state</em>) during your program's execution.</li>
+<li>You need <em>conditionals</em> like <code>if</code> statements to make decisions.</li>
+<li>You need <em>loops</em> to repeat tasks until a condition stops being true.</li>
+<li>You need <em>functions</em> to organize your code into logical and reusable chunks.</li>
+</ul>
+<p>Code comments are one effective way to write more readable code, which makes your program easier to understand, maintain, and fix later if there are problems.</p>
+<p>Finally, don't neglect the power of practice. The best way to learn how to write code is to write code.</p>
+<p>I'm excited you're well on your way to learning how to code, now! Keep it up. Don't forget to check out other beginner programming resources (books, blogs, online training, etc.). This chapter and this book are a great start, but they're just a brief introduction.</p>
+<p>The next chapter will review many of the concepts from this chapter, but from a more JavaScript-specific perspective, which will highlight most of the major topics that are addressed in deeper detail throughout the rest of the series.</p>
+<h1 id="you-dont-know-js-up-going-2">You Don't Know JS: Up &amp; Going</h1>
+<h1 id="chapter-2-into-javascript">Chapter 2: Into JavaScript</h1>
+<p>In the previous chapter, I introduced the basic building blocks of programming, such as variables, loops, conditionals, and functions. Of course, all the code shown has been in JavaScript. But in this chapter, we want to focus specifically on things you need to know about JavaScript to get up and going as a JS developer.</p>
+<p>We will introduce quite a few concepts in this chapter that will not be fully explored until subsequent <em>YDKJS</em> books. You can think of this chapter as an overview of the topics covered in detail throughout the rest of this series.</p>
+<p>Especially if you're new to JavaScript, you should expect to spend quite a bit of time reviewing the concepts and code examples here multiple times. Any good foundation is laid brick by brick, so don't expect that you'll immediately understand it all the first pass through.</p>
+<p>Your journey to deeply learn JavaScript starts here.</p>
+<p><strong>Note:</strong> As I said in Chapter 1, you should definitely try all this code yourself as you read and work through this chapter. Be aware that some of the code here assumes capabilities introduced in the newest version of JavaScript at the time of this writing (commonly referred to as &quot;ES6&quot; for the 6th edition of ECMAScript -- the official name of the JS specification). If you happen to be using an older, pre-ES6 browser, the code may not work. A recent update of a modern browser (like Chrome, Firefox, or IE) should be used.</p>
+<h2 id="values-types-1">Values &amp; Types</h2>
+<p>As we asserted in Chapter 1, JavaScript has typed values, not typed variables. The following built-in types are available:</p>
+<ul>
+<li><code>string</code></li>
+<li><code>number</code></li>
+<li><code>boolean</code></li>
+<li><code>null</code> and <code>undefined</code></li>
+<li><code>object</code></li>
+<li><code>symbol</code> (new to ES6)</li>
+</ul>
+<p>JavaScript provides a <code>typeof</code> operator that can examine a value and tell you what type it is:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a<span class="op">;</span>
+<span class="kw">typeof</span> a<span class="op">;</span>               <span class="co">// &quot;undefined&quot;</span>
+
+a <span class="op">=</span> <span class="st">&quot;hello world&quot;</span><span class="op">;</span>
+<span class="kw">typeof</span> a<span class="op">;</span>               <span class="co">// &quot;string&quot;</span>
+
+a <span class="op">=</span> <span class="dv">42</span><span class="op">;</span>
+<span class="kw">typeof</span> a<span class="op">;</span>               <span class="co">// &quot;number&quot;</span>
+
+a <span class="op">=</span> <span class="kw">true</span><span class="op">;</span>
+<span class="kw">typeof</span> a<span class="op">;</span>               <span class="co">// &quot;boolean&quot;</span>
+
+a <span class="op">=</span> <span class="kw">null</span><span class="op">;</span>
+<span class="kw">typeof</span> a<span class="op">;</span>               <span class="co">// &quot;object&quot; -- weird, bug</span>
+
+a <span class="op">=</span> <span class="kw">undefined</span><span class="op">;</span>
+<span class="kw">typeof</span> a<span class="op">;</span>               <span class="co">// &quot;undefined&quot;</span>
+
+a <span class="op">=</span> <span class="op">{</span> <span class="dt">b</span><span class="op">:</span> <span class="st">&quot;c&quot;</span> <span class="op">};</span>
+<span class="kw">typeof</span> a<span class="op">;</span>               <span class="co">// &quot;object&quot;</span></code></pre></div>
+<p>The return value from the <code>typeof</code> operator is always one of six (seven as of ES6! - the &quot;symbol&quot; type) string values. That is, <code>typeof &quot;abc&quot;</code> returns <code>&quot;string&quot;</code>, not <code>string</code>.</p>
+<p>Notice how in this snippet the <code>a</code> variable holds every different type of value, and that despite appearances, <code>typeof a</code> is not asking for the &quot;type of <code>a</code>&quot;, but rather for the &quot;type of the value currently in <code>a</code>.&quot; Only values have types in JavaScript; variables are just simple containers for those values.</p>
+<p><code>typeof null</code> is an interesting case, because it errantly returns <code>&quot;object&quot;</code>, when you'd expect it to return <code>&quot;null&quot;</code>.</p>
+<p><strong>Warning:</strong> This is a long-standing bug in JS, but one that is likely never going to be fixed. Too much code on the Web relies on the bug and thus fixing it would cause a lot more bugs!</p>
+<p>Also, note <code>a = undefined</code>. We're explicitly setting <code>a</code> to the <code>undefined</code> value, but that is behaviorally no different from a variable that has no value set yet, like with the <code>var a;</code> line at the top of the snippet. A variable can get to this &quot;undefined&quot; value state in several different ways, including functions that return no values and usage of the <code>void</code> operator.</p>
+<h3 id="objects">Objects</h3>
+<p>The <code>object</code> type refers to a compound value where you can set properties (named locations) that each hold their own values of any type. This is perhaps one of the most useful value types in all of JavaScript.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> obj <span class="op">=</span> <span class="op">{</span>
+    <span class="dt">a</span><span class="op">:</span> <span class="st">&quot;hello world&quot;</span><span class="op">,</span>
+    <span class="dt">b</span><span class="op">:</span> <span class="dv">42</span><span class="op">,</span>
+    <span class="dt">c</span><span class="op">:</span> <span class="kw">true</span>
+<span class="op">};</span>
+
+<span class="va">obj</span>.<span class="at">a</span><span class="op">;</span>      <span class="co">// &quot;hello world&quot;</span>
+<span class="va">obj</span>.<span class="at">b</span><span class="op">;</span>      <span class="co">// 42</span>
+<span class="va">obj</span>.<span class="at">c</span><span class="op">;</span>      <span class="co">// true</span>
+
+obj[<span class="st">&quot;a&quot;</span>]<span class="op">;</span>   <span class="co">// &quot;hello world&quot;</span>
+obj[<span class="st">&quot;b&quot;</span>]<span class="op">;</span>   <span class="co">// 42</span>
+obj[<span class="st">&quot;c&quot;</span>]<span class="op">;</span>   <span class="co">// true</span></code></pre></div>
+<p>It may be helpful to think of this <code>obj</code> value visually:</p>
+<p><img src="fig4.png"/></p>
+<p>Properties can either be accessed with <em>dot notation</em> (i.e., <code>obj.a</code>) or <em>bracket notation</em> (i.e., <code>obj[&quot;a&quot;]</code>). Dot notation is shorter and generally easier to read, and is thus preferred when possible.</p>
+<p>Bracket notation is useful if you have a property name that has special characters in it, like <code>obj[&quot;hello world!&quot;]</code> -- such properties are often referred to as <em>keys</em> when accessed via bracket notation. The <code>[ ]</code> notation requires either a variable (explained next) or a <code>string</code> <em>literal</em> (which needs to be wrapped in <code>&quot; .. &quot;</code> or <code>' .. '</code>).</p>
+<p>Of course, bracket notation is also useful if you want to access a property/key but the name is stored in another variable, such as:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> obj <span class="op">=</span> <span class="op">{</span>
+    <span class="dt">a</span><span class="op">:</span> <span class="st">&quot;hello world&quot;</span><span class="op">,</span>
+    <span class="dt">b</span><span class="op">:</span> <span class="dv">42</span>
+<span class="op">};</span>
+
+<span class="kw">var</span> b <span class="op">=</span> <span class="st">&quot;a&quot;</span><span class="op">;</span>
+
+obj[b]<span class="op">;</span>         <span class="co">// &quot;hello world&quot;</span>
+obj[<span class="st">&quot;b&quot;</span>]<span class="op">;</span>       <span class="co">// 42</span></code></pre></div>
+<p><strong>Note:</strong> For more information on JavaScript <code>object</code>s, see the <em>this &amp; Object Prototypes</em> title of this series, specifically Chapter 3.</p>
+<p>There are a couple of other value types that you will commonly interact with in JavaScript programs: <em>array</em> and <em>function</em>. But rather than being proper built-in types, these should be thought of more like subtypes -- specialized versions of the <code>object</code> type.</p>
+<h4 id="arrays">Arrays</h4>
+<p>An array is an <code>object</code> that holds values (of any type) not particularly in named properties/keys, but rather in numerically indexed positions. For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> arr <span class="op">=</span> [
+    <span class="st">&quot;hello world&quot;</span><span class="op">,</span>
+    <span class="dv">42</span><span class="op">,</span>
+    <span class="kw">true</span>
+]<span class="op">;</span>
+
+arr[<span class="dv">0</span>]<span class="op">;</span>         <span class="co">// &quot;hello world&quot;</span>
+arr[<span class="dv">1</span>]<span class="op">;</span>         <span class="co">// 42</span>
+arr[<span class="dv">2</span>]<span class="op">;</span>         <span class="co">// true</span>
+<span class="va">arr</span>.<span class="at">length</span><span class="op">;</span>     <span class="co">// 3</span>
+
+<span class="kw">typeof</span> arr<span class="op">;</span>     <span class="co">// &quot;object&quot;</span></code></pre></div>
+<p><strong>Note:</strong> Languages that start counting at zero, like JS does, use <code>0</code> as the index of the first element in the array.</p>
+<p>It may be helpful to think of <code>arr</code> visually:</p>
+<p><img src="fig5.png"/></p>
+<p>Because arrays are special objects (as <code>typeof</code> implies), they can also have properties, including the automatically updated <code>length</code> property.</p>
+<p>You theoretically could use an array as a normal object with your own named properties, or you could use an <code>object</code> but only give it numeric properties (<code>0</code>, <code>1</code>, etc.) similar to an array. However, this would generally be considered improper usage of the respective types.</p>
+<p>The best and most natural approach is to use arrays for numerically positioned values and use <code>object</code>s for named properties.</p>
+<h4 id="functions-1">Functions</h4>
+<p>The other <code>object</code> subtype you'll use all over your JS programs is a function:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    <span class="cf">return</span> <span class="dv">42</span><span class="op">;</span>
+<span class="op">}</span>
+
+<span class="va">foo</span>.<span class="at">bar</span> <span class="op">=</span> <span class="st">&quot;hello world&quot;</span><span class="op">;</span>
+
+<span class="kw">typeof</span> foo<span class="op">;</span>         <span class="co">// &quot;function&quot;</span>
+<span class="kw">typeof</span> <span class="at">foo</span>()<span class="op">;</span>       <span class="co">// &quot;number&quot;</span>
+<span class="kw">typeof</span> <span class="va">foo</span>.<span class="at">bar</span><span class="op">;</span>     <span class="co">// &quot;string&quot;</span></code></pre></div>
+<p>Again, functions are a subtype of <code>objects</code> -- <code>typeof</code> returns <code>&quot;function&quot;</code>, which implies that a <code>function</code> is a main type -- and can thus have properties, but you typically will only use function object properties (like <code>foo.bar</code>) in limited cases.</p>
+<p><strong>Note:</strong> For more information on JS values and their types, see the first two chapters of the <em>Types &amp; Grammar</em> title of this series.</p>
+<h3 id="built-in-type-methods">Built-In Type Methods</h3>
+<p>The built-in types and subtypes we've just discussed have behaviors exposed as properties and methods that are quite powerful and useful.</p>
+<p>For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="st">&quot;hello world&quot;</span><span class="op">;</span>
+<span class="kw">var</span> b <span class="op">=</span> <span class="fl">3.14159</span><span class="op">;</span>
+
+<span class="va">a</span>.<span class="at">length</span><span class="op">;</span>               <span class="co">// 11</span>
+<span class="va">a</span>.<span class="at">toUpperCase</span>()<span class="op">;</span>        <span class="co">// &quot;HELLO WORLD&quot;</span>
+<span class="va">b</span>.<span class="at">toFixed</span>(<span class="dv">4</span>)<span class="op">;</span>           <span class="co">// &quot;3.1416&quot;</span></code></pre></div>
+<p>The &quot;how&quot; behind being able to call <code>a.toUpperCase()</code> is more complicated than just that method existing on the value.</p>
+<p>Briefly, there is a <code>String</code> (capital <code>S</code>) object wrapper form, typically called a &quot;native,&quot; that pairs with the primitive <code>string</code> type; it's this object wrapper that defines the <code>toUpperCase()</code> method on its prototype.</p>
+<p>When you use a primitive value like <code>&quot;hello world&quot;</code> as an <code>object</code> by referencing a property or method (e.g., <code>a.toUpperCase()</code> in the previous snippet), JS automatically &quot;boxes&quot; the value to its object wrapper counterpart (hidden under the covers).</p>
+<p>A <code>string</code> value can be wrapped by a <code>String</code> object, a <code>number</code> can be wrapped by a <code>Number</code> object, and a <code>boolean</code> can be wrapped by a <code>Boolean</code> object. For the most part, you don't need to worry about or directly use these object wrapper forms of the values -- prefer the primitive value forms in practically all cases and JavaScript will take care of the rest for you.</p>
+<p><strong>Note:</strong> For more information on JS natives and &quot;boxing,&quot; see Chapter 3 of the <em>Types &amp; Grammar</em> title of this series. To better understand the prototype of an object, see Chapter 5 of the <em>this &amp; Object Prototypes</em> title of this series.</p>
+<h3 id="comparing-values">Comparing Values</h3>
+<p>There are two main types of value comparison that you will need to make in your JS programs: <em>equality</em> and <em>inequality</em>. The result of any comparison is a strictly <code>boolean</code> value (<code>true</code> or <code>false</code>), regardless of what value types are compared.</p>
+<h4 id="coercion">Coercion</h4>
+<p>We talked briefly about coercion in Chapter 1, but let's revisit it here.</p>
+<p>Coercion comes in two forms in JavaScript: <em>explicit</em> and <em>implicit</em>. Explicit coercion is simply that you can see obviously from the code that a conversion from one type to another will occur, whereas implicit coercion is when the type conversion can happen as more of a non-obvious side effect of some other operation.</p>
+<p>You've probably heard sentiments like &quot;coercion is evil&quot; drawn from the fact that there are clearly places where coercion can produce some surprising results. Perhaps nothing evokes frustration from developers more than when the language surprises them.</p>
+<p>Coercion is not evil, nor does it have to be surprising. In fact, the majority of cases you can construct with type coercion are quite sensible and understandable, and can even be used to <em>improve</em> the readability of your code. But we won't go much further into that debate -- Chapter 4 of the <em>Types &amp; Grammar</em> title of this series covers all sides.</p>
+<p>Here's an example of <em>explicit</em> coercion:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="st">&quot;42&quot;</span><span class="op">;</span>
+
+<span class="kw">var</span> b <span class="op">=</span> <span class="at">Number</span>( a )<span class="op">;</span>
+
+a<span class="op">;</span>              <span class="co">// &quot;42&quot;</span>
+b<span class="op">;</span>              <span class="co">// 42 -- the number!</span></code></pre></div>
+<p>And here's an example of <em>implicit</em> coercion:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="st">&quot;42&quot;</span><span class="op">;</span>
+
+<span class="kw">var</span> b <span class="op">=</span> a <span class="op">*</span> <span class="dv">1</span><span class="op">;</span>  <span class="co">// &quot;42&quot; implicitly coerced to 42 here</span>
+
+a<span class="op">;</span>              <span class="co">// &quot;42&quot;</span>
+b<span class="op">;</span>              <span class="co">// 42 -- the number!</span></code></pre></div>
+<h4 id="truthy-falsy">Truthy &amp; Falsy</h4>
+<p>In Chapter 1, we briefly mentioned the &quot;truthy&quot; and &quot;falsy&quot; nature of values: when a non-<code>boolean</code> value is coerced to a <code>boolean</code>, does it become <code>true</code> or <code>false</code>, respectively?</p>
+<p>The specific list of &quot;falsy&quot; values in JavaScript is as follows:</p>
+<ul>
+<li><code>&quot;&quot;</code> (empty string)</li>
+<li><code>0</code>, <code>-0</code>, <code>NaN</code> (invalid <code>number</code>)</li>
+<li><code>null</code>, <code>undefined</code></li>
+<li><code>false</code></li>
+</ul>
+<p>Any value that's not on this &quot;falsy&quot; list is &quot;truthy.&quot; Here are some examples of those:</p>
+<ul>
+<li><code>&quot;hello&quot;</code></li>
+<li><code>42</code></li>
+<li><code>true</code></li>
+<li><code>[ ]</code>, <code>[ 1, &quot;2&quot;, 3 ]</code> (arrays)</li>
+<li><code>{ }</code>, <code>{ a: 42 }</code> (objects)</li>
+<li><code>function foo() { .. }</code> (functions)</li>
+</ul>
+<p>It's important to remember that a non-<code>boolean</code> value only follows this &quot;truthy&quot;/&quot;falsy&quot; coercion if it's actually coerced to a <code>boolean</code>. It's not all that difficult to confuse yourself with a situation that seems like it's coercing a value to a <code>boolean</code> when it's not.</p>
+<h4 id="equality">Equality</h4>
+<p>There are four equality operators: <code>==</code>, <code>===</code>, <code>!=</code>, and <code>!==</code>. The <code>!</code> forms are of course the symmetric &quot;not equal&quot; versions of their counterparts; <em>non-equality</em> should not be confused with <em>inequality</em>.</p>
+<p>The difference between <code>==</code> and <code>===</code> is usually characterized that <code>==</code> checks for value equality and <code>===</code> checks for both value and type equality. However, this is inaccurate. The proper way to characterize them is that <code>==</code> checks for value equality with coercion allowed, and <code>===</code> checks for value equality without allowing coercion; <code>===</code> is often called &quot;strict equality&quot; for this reason.</p>
+<p>Consider the implicit coercion that's allowed by the <code>==</code> loose-equality comparison and not allowed with the <code>===</code> strict-equality:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="st">&quot;42&quot;</span><span class="op">;</span>
+<span class="kw">var</span> b <span class="op">=</span> <span class="dv">42</span><span class="op">;</span>
+
+a <span class="op">==</span> b<span class="op">;</span>         <span class="co">// true</span>
+a <span class="op">===</span> b<span class="op">;</span>        <span class="co">// false</span></code></pre></div>
+<p>In the <code>a == b</code> comparison, JS notices that the types do not match, so it goes through an ordered series of steps to coerce one or both values to a different type until the types match, where then a simple value equality can be checked.</p>
+<p>If you think about it, there's two possible ways <code>a == b</code> could give <code>true</code> via coercion. Either the comparison could end up as <code>42 == 42</code> or it could be <code>&quot;42&quot; == &quot;42&quot;</code>. So which is it?</p>
+<p>The answer: <code>&quot;42&quot;</code> becomes <code>42</code>, to make the comparison <code>42 == 42</code>. In such a simple example, it doesn't really seem to matter which way that process goes, as the end result is the same. There are more complex cases where it matters not just what the end result of the comparison is, but <em>how</em> you get there.</p>
+<p>The <code>a === b</code> produces <code>false</code>, because the coercion is not allowed, so the simple value comparison obviously fails. Many developers feel that <code>===</code> is more predictable, so they advocate always using that form and staying away from <code>==</code>. I think this view is very shortsighted. I believe <code>==</code> is a powerful tool that helps your program, <em>if you take the time to learn how it works.</em></p>
+<p>We're not going to cover all the nitty-gritty details of how the coercion in <code>==</code> comparisons works here. Much of it is pretty sensible, but there are some important corner cases to be careful of. You can read section 11.9.3 of the ES5 specification (http://www.ecma-international.org/ecma-262/5.1/) to see the exact rules, and you'll be surprised at just how straightforward this mechanism is, compared to all the negative hype surrounding it.</p>
+<p>To boil down a whole lot of details to a few simple takeaways, and help you know whether to use <code>==</code> or <code>===</code> in various situations, here are my simple rules:</p>
+<ul>
+<li>If either value (aka side) in a comparison could be the <code>true</code> or <code>false</code> value, avoid <code>==</code> and use <code>===</code>.</li>
+<li>If either value in a comparison could be of these specific values (<code>0</code>, <code>&quot;&quot;</code>, or <code>[]</code> -- empty array), avoid <code>==</code> and use <code>===</code>.</li>
+<li>In <em>all</em> other cases, you're safe to use <code>==</code>. Not only is it safe, but in many cases it simplifies your code in a way that improves readability.</li>
+</ul>
+<p>What these rules boil down to is requiring you to think critically about your code and about what kinds of values can come through variables that get compared for equality. If you can be certain about the values, and <code>==</code> is safe, use it! If you can't be certain about the values, use <code>===</code>. It's that simple.</p>
+<p>The <code>!=</code> non-equality form pairs with <code>==</code>, and the <code>!==</code> form pairs with <code>===</code>. All the rules and observations we just discussed hold symmetrically for these non-equality comparisons.</p>
+<p>You should take special note of the <code>==</code> and <code>===</code> comparison rules if you're comparing two non-primitive values, like <code>object</code>s (including <code>function</code> and <code>array</code>). Because those values are actually held by reference, both <code>==</code> and <code>===</code> comparisons will simply check whether the references match, not anything about the underlying values.</p>
+<p>For example, <code>array</code>s are by default coerced to <code>string</code>s by simply joining all the values with commas (<code>,</code>) in between. You might think that two <code>array</code>s with the same contents would be <code>==</code> equal, but they're not:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span>]<span class="op">;</span>
+<span class="kw">var</span> b <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span>]<span class="op">;</span>
+<span class="kw">var</span> c <span class="op">=</span> <span class="st">&quot;1,2,3&quot;</span><span class="op">;</span>
+
+a <span class="op">==</span> c<span class="op">;</span>     <span class="co">// true</span>
+b <span class="op">==</span> c<span class="op">;</span>     <span class="co">// true</span>
+a <span class="op">==</span> b<span class="op">;</span>     <span class="co">// false</span></code></pre></div>
+<p><strong>Note:</strong> For more information about the <code>==</code> equality comparison rules, see the ES5 specification (section 11.9.3) and also consult Chapter 4 of the <em>Types &amp; Grammar</em> title of this series; see Chapter 2 for more information about values versus references.</p>
+<h4 id="inequality">Inequality</h4>
+<p>The <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code> operators are used for inequality, referred to in the specification as &quot;relational comparison.&quot; Typically they will be used with ordinally comparable values like <code>number</code>s. It's easy to understand that <code>3 &lt; 4</code>.</p>
+<p>But JavaScript <code>string</code> values can also be compared for inequality, using typical alphabetic rules (<code>&quot;bar&quot; &lt; &quot;foo&quot;</code>).</p>
+<p>What about coercion? Similar rules as <code>==</code> comparison (though not exactly identical!) apply to the inequality operators. Notably, there are no &quot;strict inequality&quot; operators that would disallow coercion the same way <code>===</code> &quot;strict equality&quot; does.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="dv">41</span><span class="op">;</span>
+<span class="kw">var</span> b <span class="op">=</span> <span class="st">&quot;42&quot;</span><span class="op">;</span>
+<span class="kw">var</span> c <span class="op">=</span> <span class="st">&quot;43&quot;</span><span class="op">;</span>
+
+a <span class="op">&lt;</span> b<span class="op">;</span>      <span class="co">// true</span>
+b <span class="op">&lt;</span> c<span class="op">;</span>      <span class="co">// true</span></code></pre></div>
+<p>What happens here? In section 11.8.5 of the ES5 specification, it says that if both values in the <code>&lt;</code> comparison are <code>string</code>s, as it is with <code>b &lt; c</code>, the comparison is made lexicographically (aka alphabetically like a dictionary). But if one or both is not a <code>string</code>, as it is with <code>a &lt; b</code>, then both values are coerced to be <code>number</code>s, and a typical numeric comparison occurs.</p>
+<p>The biggest gotcha you may run into here with comparisons between potentially different value types -- remember, there are no &quot;strict inequality&quot; forms to use -- is when one of the values cannot be made into a valid number, such as:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="dv">42</span><span class="op">;</span>
+<span class="kw">var</span> b <span class="op">=</span> <span class="st">&quot;foo&quot;</span><span class="op">;</span>
+
+a <span class="op">&lt;</span> b<span class="op">;</span>      <span class="co">// false</span>
+a <span class="op">&gt;</span> b<span class="op">;</span>      <span class="co">// false</span>
+a <span class="op">==</span> b<span class="op">;</span>     <span class="co">// false</span></code></pre></div>
+<p>Wait, how can all three of those comparisons be <code>false</code>? Because the <code>b</code> value is being coerced to the &quot;invalid number value&quot; <code>NaN</code> in the <code>&lt;</code> and <code>&gt;</code> comparisons, and the specification says that <code>NaN</code> is neither greater-than nor less-than any other value.</p>
+<p>The <code>==</code> comparison fails for a different reason. <code>a == b</code> could fail if it's interpreted either as <code>42 == NaN</code> or <code>&quot;42&quot; == &quot;foo&quot;</code> -- as we explained earlier, the former is the case.</p>
+<p><strong>Note:</strong> For more information about the inequality comparison rules, see section 11.8.5 of the ES5 specification and also consult Chapter 4 of the <em>Types &amp; Grammar</em> title of this series.</p>
+<h2 id="variables-1">Variables</h2>
+<p>In JavaScript, variable names (including function names) must be valid <em>identifiers</em>. The strict and complete rules for valid characters in identifiers are a little complex when you consider nontraditional characters such as Unicode. If you only consider typical ASCII alphanumeric characters, though, the rules are simple.</p>
+<p>An identifier must start with <code>a</code>-<code>z</code>, <code>A</code>-<code>Z</code>, <code>$</code>, or <code>_</code>. It can then contain any of those characters plus the numerals <code>0</code>-<code>9</code>.</p>
+<p>Generally, the same rules apply to a property name as to a variable identifier. However, certain words cannot be used as variables, but are OK as property names. These words are called &quot;reserved words,&quot; and include the JS keywords (<code>for</code>, <code>in</code>, <code>if</code>, etc.) as well as <code>null</code>, <code>true</code>, and <code>false</code>.</p>
+<p><strong>Note:</strong> For more information about reserved words, see Appendix A of the <em>Types &amp; Grammar</em> title of this series.</p>
+<h3 id="function-scopes">Function Scopes</h3>
+<p>You use the <code>var</code> keyword to declare a variable that will belong to the current function scope, or the global scope if at the top level outside of any function.</p>
+<h4 id="hoisting">Hoisting</h4>
+<p>Wherever a <code>var</code> appears inside a scope, that declaration is taken to belong to the entire scope and accessible everywhere throughout.</p>
+<p>Metaphorically, this behavior is called <em>hoisting</em>, when a <code>var</code> declaration is conceptually &quot;moved&quot; to the top of its enclosing scope. Technically, this process is more accurately explained by how code is compiled, but we can skip over those details for now.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>
+
+<span class="at">foo</span>()<span class="op">;</span>                  <span class="co">// works because `foo()`</span>
+                        <span class="co">// declaration is &quot;hoisted&quot;</span>
+
+<span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    a <span class="op">=</span> <span class="dv">3</span><span class="op">;</span>
+
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>   <span class="co">// 3</span>
+
+    <span class="kw">var</span> a<span class="op">;</span>              <span class="co">// declaration is &quot;hoisted&quot;</span>
+                        <span class="co">// to the top of `foo()`</span>
+<span class="op">}</span>
+
+<span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>   <span class="co">// 2</span></code></pre></div>
+<p><strong>Warning:</strong> It's not common or a good idea to rely on variable <em>hoisting</em> to use a variable earlier in its scope than its <code>var</code> declaration appears; it can be quite confusing. It's much more common and accepted to use <em>hoisted</em> function declarations, as we do with the <code>foo()</code> call appearing before its formal declaration.</p>
+<h4 id="nested-scopes">Nested Scopes</h4>
+<p>When you declare a variable, it is available anywhere in that scope, as well as any lower/inner scopes. For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    <span class="kw">var</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
+
+    <span class="kw">function</span> <span class="at">bar</span>() <span class="op">{</span>
+        <span class="kw">var</span> b <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>
+
+        <span class="kw">function</span> <span class="at">baz</span>() <span class="op">{</span>
+            <span class="kw">var</span> c <span class="op">=</span> <span class="dv">3</span><span class="op">;</span>
+
+            <span class="va">console</span>.<span class="at">log</span>( a<span class="op">,</span> b<span class="op">,</span> c )<span class="op">;</span> <span class="co">// 1 2 3</span>
+        <span class="op">}</span>
+
+        <span class="at">baz</span>()<span class="op">;</span>
+        <span class="va">console</span>.<span class="at">log</span>( a<span class="op">,</span> b )<span class="op">;</span>        <span class="co">// 1 2</span>
+    <span class="op">}</span>
+
+    <span class="at">bar</span>()<span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>               <span class="co">// 1</span>
+<span class="op">}</span>
+
+<span class="at">foo</span>()<span class="op">;</span></code></pre></div>
+<p>Notice that <code>c</code> is not available inside of <code>bar()</code>, because it's declared only inside the inner <code>baz()</code> scope, and that <code>b</code> is not available to <code>foo()</code> for the same reason.</p>
+<p>If you try to access a variable's value in a scope where it's not available, you'll get a <code>ReferenceError</code> thrown. If you try to set a variable that hasn't been declared, you'll either end up creating a variable in the top-level global scope (bad!) or getting an error, depending on &quot;strict mode&quot; (see &quot;Strict Mode&quot;). Let's take a look:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>  <span class="co">// `a` not formally declared</span>
+<span class="op">}</span>
+
+<span class="at">foo</span>()<span class="op">;</span>
+a<span class="op">;</span>          <span class="co">// 1 -- oops, auto global variable :(</span></code></pre></div>
+<p>This is a very bad practice. Don't do it! Always formally declare your variables.</p>
+<p>In addition to creating declarations for variables at the function level, ES6 <em>lets</em> you declare variables to belong to individual blocks (pairs of <code>{ .. }</code>), using the <code>let</code> keyword. Besides some nuanced details, the scoping rules will behave roughly the same as we just saw with functions:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    <span class="kw">var</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
+
+    <span class="cf">if</span> (a <span class="op">&gt;=</span> <span class="dv">1</span>) <span class="op">{</span>
+        <span class="kw">let</span> b <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>
+
+        <span class="cf">while</span> (b <span class="op">&lt;</span> <span class="dv">5</span>) <span class="op">{</span>
+            <span class="kw">let</span> c <span class="op">=</span> b <span class="op">*</span> <span class="dv">2</span><span class="op">;</span>
+            b<span class="op">++;</span>
+
+            <span class="va">console</span>.<span class="at">log</span>( a <span class="op">+</span> c )<span class="op">;</span>
+        <span class="op">}</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="at">foo</span>()<span class="op">;</span>
+<span class="co">// 5 7 9</span></code></pre></div>
+<p>Because of using <code>let</code> instead of <code>var</code>, <code>b</code> will belong only to the <code>if</code> statement and thus not to the whole <code>foo()</code> function's scope. Similarly, <code>c</code> belongs only to the <code>while</code> loop. Block scoping is very useful for managing your variable scopes in a more fine-grained fashion, which can make your code much easier to maintain over time.</p>
+<p><strong>Note:</strong> For more information about scope, see the <em>Scope &amp; Closures</em> title of this series. See the <em>ES6 &amp; Beyond</em> title of this series for more information about <code>let</code> block scoping.</p>
+<h2 id="conditionals-1">Conditionals</h2>
+<p>In addition to the <code>if</code> statement we introduced briefly in Chapter 1, JavaScript provides a few other conditionals mechanisms that we should take a look at.</p>
+<p>Sometimes you may find yourself writing a series of <code>if..else..if</code> statements like this:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="cf">if</span> (a <span class="op">==</span> <span class="dv">2</span>) <span class="op">{</span>
+    <span class="co">// do something</span>
+<span class="op">}</span>
+<span class="cf">else</span> <span class="cf">if</span> (a <span class="op">==</span> <span class="dv">10</span>) <span class="op">{</span>
+    <span class="co">// do another thing</span>
+<span class="op">}</span>
+<span class="cf">else</span> <span class="cf">if</span> (a <span class="op">==</span> <span class="dv">42</span>) <span class="op">{</span>
+    <span class="co">// do yet another thing</span>
+<span class="op">}</span>
+<span class="cf">else</span> <span class="op">{</span>
+    <span class="co">// fallback to here</span>
+<span class="op">}</span></code></pre></div>
+<p>This structure works, but it's a little verbose because you need to specify the <code>a</code> test for each case. Here's another option, the <code>switch</code> statement:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="cf">switch</span> (a) <span class="op">{</span>
+    <span class="cf">case</span> <span class="dv">2</span><span class="op">:</span>
+        <span class="co">// do something</span>
+        <span class="cf">break</span><span class="op">;</span>
+    <span class="cf">case</span> <span class="dv">10</span><span class="op">:</span>
+        <span class="co">// do another thing</span>
+        <span class="cf">break</span><span class="op">;</span>
+    <span class="cf">case</span> <span class="dv">42</span><span class="op">:</span>
+        <span class="co">// do yet another thing</span>
+        <span class="cf">break</span><span class="op">;</span>
+    <span class="dt">default</span><span class="op">:</span>
+        <span class="co">// fallback to here</span>
+<span class="op">}</span></code></pre></div>
+<p>The <code>break</code> is important if you want only the statement(s) in one <code>case</code> to run. If you omit <code>break</code> from a <code>case</code>, and that <code>case</code> matches or runs, execution will continue with the next <code>case</code>'s statements regardless of that <code>case</code> matching. This so called &quot;fall through&quot; is sometimes useful/desired:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="cf">switch</span> (a) <span class="op">{</span>
+    <span class="cf">case</span> <span class="dv">2</span><span class="op">:</span>
+    <span class="cf">case</span> <span class="dv">10</span><span class="op">:</span>
+        <span class="co">// some cool stuff</span>
+        <span class="cf">break</span><span class="op">;</span>
+    <span class="cf">case</span> <span class="dv">42</span><span class="op">:</span>
+        <span class="co">// other stuff</span>
+        <span class="cf">break</span><span class="op">;</span>
+    <span class="dt">default</span><span class="op">:</span>
+        <span class="co">// fallback</span>
+<span class="op">}</span></code></pre></div>
+<p>Here, if <code>a</code> is either <code>2</code> or <code>10</code>, it will execute the &quot;some cool stuff&quot; code statements.</p>
+<p>Another form of conditional in JavaScript is the &quot;conditional operator,&quot; often called the &quot;ternary operator.&quot; It's like a more concise form of a single <code>if..else</code> statement, such as:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="dv">42</span><span class="op">;</span>
+
+<span class="kw">var</span> b <span class="op">=</span> (a <span class="op">&gt;</span> <span class="dv">41</span>) <span class="op">?</span> <span class="st">&quot;hello&quot;</span> : <span class="st">&quot;world&quot;</span><span class="op">;</span>
+
+<span class="co">// similar to:</span>
+
+<span class="co">// if (a &gt; 41) {</span>
+<span class="co">//    b = &quot;hello&quot;;</span>
+<span class="co">// }</span>
+<span class="co">// else {</span>
+<span class="co">//    b = &quot;world&quot;;</span>
+<span class="co">// }</span></code></pre></div>
+<p>If the test expression (<code>a &gt; 41</code> here) evaluates as <code>true</code>, the first clause (<code>&quot;hello&quot;</code>) results, otherwise the second clause (<code>&quot;world&quot;</code>) results, and whatever the result is then gets assigned to <code>b</code>.</p>
+<p>The conditional operator doesn't have to be used in an assignment, but that's definitely the most common usage.</p>
+<p><strong>Note:</strong> For more information about testing conditions and other patterns for <code>switch</code> and <code>? :</code>, see the <em>Types &amp; Grammar</em> title of this series.</p>
+<h2 id="strict-mode">Strict Mode</h2>
+<p>ES5 added a &quot;strict mode&quot; to the language, which tightens the rules for certain behaviors. Generally, these restrictions are seen as keeping the code to a safer and more appropriate set of guidelines. Also, adhering to strict mode makes your code generally more optimizable by the engine. Strict mode is a big win for code, and you should use it for all your programs.</p>
+<p>You can opt in to strict mode for an individual function, or an entire file, depending on where you put the strict mode pragma:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    <span class="st">&quot;use strict&quot;</span><span class="op">;</span>
+
+    <span class="co">// this code is strict mode</span>
+
+    <span class="kw">function</span> <span class="at">bar</span>() <span class="op">{</span>
+        <span class="co">// this code is strict mode</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="co">// this code is not strict mode</span></code></pre></div>
+<p>Compare that to:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="st">&quot;use strict&quot;</span><span class="op">;</span>
+
+<span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    <span class="co">// this code is strict mode</span>
+
+    <span class="kw">function</span> <span class="at">bar</span>() <span class="op">{</span>
+        <span class="co">// this code is strict mode</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="co">// this code is strict mode</span></code></pre></div>
+<p>One key difference (improvement!) with strict mode is disallowing the implicit auto-global variable declaration from omitting the <code>var</code>:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    <span class="st">&quot;use strict&quot;</span><span class="op">;</span>   <span class="co">// turn on strict mode</span>
+    a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>          <span class="co">// `var` missing, ReferenceError</span>
+<span class="op">}</span>
+
+<span class="at">foo</span>()<span class="op">;</span></code></pre></div>
+<p>If you turn on strict mode in your code, and you get errors, or code starts behaving buggy, your temptation might be to avoid strict mode. But that instinct would be a bad idea to indulge. If strict mode causes issues in your program, almost certainly it's a sign that you have things in your program you should fix.</p>
+<p>Not only will strict mode keep your code to a safer path, and not only will it make your code more optimizable, but it also represents the future direction of the language. It'd be easier on you to get used to strict mode now than to keep putting it off -- it'll only get harder to convert later!</p>
+<p><strong>Note:</strong> For more information about strict mode, see the Chapter 5 of the <em>Types &amp; Grammar</em> title of this series.</p>
+<h2 id="functions-as-values">Functions As Values</h2>
+<p>So far, we've discussed functions as the primary mechanism of <em>scope</em> in JavaScript. You recall typical <code>function</code> declaration syntax as follows:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    <span class="co">// ..</span>
+<span class="op">}</span></code></pre></div>
+<p>Though it may not seem obvious from that syntax, <code>foo</code> is basically just a variable in the outer enclosing scope that's given a reference to the <code>function</code> being declared. That is, the <code>function</code> itself is a value, just like <code>42</code> or <code>[1,2,3]</code> would be.</p>
+<p>This may sound like a strange concept at first, so take a moment to ponder it. Not only can you pass a value (argument) <em>to</em> a function, but <em>a function itself can be a value</em> that's assigned to variables, or passed to or returned from other functions.</p>
+<p>As such, a function value should be thought of as an expression, much like any other value or expression.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> foo <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
+    <span class="co">// ..</span>
+<span class="op">};</span>
+
+<span class="kw">var</span> x <span class="op">=</span> <span class="kw">function</span> <span class="at">bar</span>()<span class="op">{</span>
+    <span class="co">// ..</span>
+<span class="op">};</span></code></pre></div>
+<p>The first function expression assigned to the <code>foo</code> variable is called <em>anonymous</em> because it has no <code>name</code>.</p>
+<p>The second function expression is <em>named</em> (<code>bar</code>), even as a reference to it is also assigned to the <code>x</code> variable. <em>Named function expressions</em> are generally more preferable, though <em>anonymous function expressions</em> are still extremely common.</p>
+<p>For more information, see the <em>Scope &amp; Closures</em> title of this series.</p>
+<h3 id="immediately-invoked-function-expressions-iifes">Immediately Invoked Function Expressions (IIFEs)</h3>
+<p>In the previous snippet, neither of the function expressions are executed -- we could if we had included <code>foo()</code> or <code>x()</code>, for instance.</p>
+<p>There's another way to execute a function expression, which is typically referred to as an <em>immediately invoked function expression</em> (IIFE):</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">(<span class="kw">function</span> <span class="at">IIFE</span>()<span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( <span class="st">&quot;Hello!&quot;</span> )<span class="op">;</span>
+<span class="op">}</span>)()<span class="op">;</span>
+<span class="co">// &quot;Hello!&quot;</span></code></pre></div>
+<p>The outer <code>( .. )</code> that surrounds the <code>(function IIFE(){ .. })</code> function expression is just a nuance of JS grammar needed to prevent it from being treated as a normal function declaration.</p>
+<p>The final <code>()</code> on the end of the expression -- the <code>})();</code> line -- is what actually executes the function expression referenced immediately before it.</p>
+<p>That may seem strange, but it's not as foreign as first glance. Consider the similarities between <code>foo</code> and <code>IIFE</code> here:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span> .. <span class="op">}</span>
+
+<span class="co">// `foo` function reference expression,</span>
+<span class="co">// then `()` executes it</span>
+<span class="at">foo</span>()<span class="op">;</span>
+
+<span class="co">// `IIFE` function expression,</span>
+<span class="co">// then `()` executes it</span>
+(<span class="kw">function</span> <span class="at">IIFE</span>()<span class="op">{</span> .. <span class="op">}</span>)()<span class="op">;</span></code></pre></div>
+<p>As you can see, listing the <code>(function IIFE(){ .. })</code> before its executing <code>()</code> is essentially the same as including <code>foo</code> before its executing <code>()</code>; in both cases, the function reference is executed with <code>()</code> immediately after it.</p>
+<p>Because an IIFE is just a function, and functions create variable <em>scope</em>, using an IIFE in this fashion is often used to declare variables that won't affect the surrounding code outside the IIFE:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="dv">42</span><span class="op">;</span>
+
+(<span class="kw">function</span> <span class="at">IIFE</span>()<span class="op">{</span>
+    <span class="kw">var</span> a <span class="op">=</span> <span class="dv">10</span><span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>   <span class="co">// 10</span>
+<span class="op">}</span>)()<span class="op">;</span>
+
+<span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>       <span class="co">// 42</span></code></pre></div>
+<p>IIFEs can also have return values:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> x <span class="op">=</span> (<span class="kw">function</span> <span class="at">IIFE</span>()<span class="op">{</span>
+    <span class="cf">return</span> <span class="dv">42</span><span class="op">;</span>
+<span class="op">}</span>)()<span class="op">;</span>
+
+x<span class="op">;</span>  <span class="co">// 42</span></code></pre></div>
+<p>The <code>42</code> value gets <code>return</code>ed from the <code>IIFE</code>-named function being executed, and is then assigned to <code>x</code>.</p>
+<h3 id="closure">Closure</h3>
+<p><em>Closure</em> is one of the most important, and often least understood, concepts in JavaScript. I won't cover it in deep detail here, and instead refer you to the <em>Scope &amp; Closures</em> title of this series. But I want to say a few things about it so you understand the general concept. It will be one of the most important techniques in your JS skillset.</p>
+<p>You can think of closure as a way to &quot;remember&quot; and continue to access a function's scope (its variables) even once the function has finished running.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">makeAdder</span>(x) <span class="op">{</span>
+    <span class="co">// parameter `x` is an inner variable</span>
+
+    <span class="co">// inner function `add()` uses `x`, so</span>
+    <span class="co">// it has a &quot;closure&quot; over it</span>
+    <span class="kw">function</span> <span class="at">add</span>(y) <span class="op">{</span>
+        <span class="cf">return</span> y <span class="op">+</span> x<span class="op">;</span>
+    <span class="op">};</span>
+
+    <span class="cf">return</span> add<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>The reference to the inner <code>add(..)</code> function that gets returned with each call to the outer <code>makeAdder(..)</code> is able to remember whatever <code>x</code> value was passed in to <code>makeAdder(..)</code>. Now, let's use <code>makeAdder(..)</code>:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// `plusOne` gets a reference to the inner `add(..)`</span>
+<span class="co">// function with closure over the `x` parameter of</span>
+<span class="co">// the outer `makeAdder(..)`</span>
+<span class="kw">var</span> plusOne <span class="op">=</span> <span class="at">makeAdder</span>( <span class="dv">1</span> )<span class="op">;</span>
+
+<span class="co">// `plusTen` gets a reference to the inner `add(..)`</span>
+<span class="co">// function with closure over the `x` parameter of</span>
+<span class="co">// the outer `makeAdder(..)`</span>
+<span class="kw">var</span> plusTen <span class="op">=</span> <span class="at">makeAdder</span>( <span class="dv">10</span> )<span class="op">;</span>
+
+<span class="at">plusOne</span>( <span class="dv">3</span> )<span class="op">;</span>       <span class="co">// 4  &lt;-- 1 + 3</span>
+<span class="at">plusOne</span>( <span class="dv">41</span> )<span class="op">;</span>      <span class="co">// 42 &lt;-- 1 + 41</span>
+
+<span class="at">plusTen</span>( <span class="dv">13</span> )<span class="op">;</span>      <span class="co">// 23 &lt;-- 10 + 13</span></code></pre></div>
+<p>More on how this code works:</p>
+<ol type="1">
+<li>When we call <code>makeAdder(1)</code>, we get back a reference to its inner <code>add(..)</code> that remembers <code>x</code> as <code>1</code>. We call this function reference <code>plusOne(..)</code>.</li>
+<li>When we call <code>makeAdder(10)</code>, we get back another reference to its inner <code>add(..)</code> that remembers <code>x</code> as <code>10</code>. We call this function reference <code>plusTen(..)</code>.</li>
+<li>When we call <code>plusOne(3)</code>, it adds <code>3</code> (its inner <code>y</code>) to the <code>1</code> (remembered by <code>x</code>), and we get <code>4</code> as the result.</li>
+<li>When we call <code>plusTen(13)</code>, it adds <code>13</code> (its inner <code>y</code>) to the <code>10</code> (remembered by <code>x</code>), and we get <code>23</code> as the result.</li>
+</ol>
+<p>Don't worry if this seems strange and confusing at first -- it can be! It'll take lots of practice to understand it fully.</p>
+<p>But trust me, once you do, it's one of the most powerful and useful techniques in all of programming. It's definitely worth the effort to let your brain simmer on closures for a bit. In the next section, we'll get a little more practice with closure.</p>
+<h4 id="modules">Modules</h4>
+<p>The most common usage of closure in JavaScript is the module pattern. Modules let you define private implementation details (variables, functions) that are hidden from the outside world, as well as a public API that <em>is</em> accessible from the outside.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">User</span>()<span class="op">{</span>
+    <span class="kw">var</span> username<span class="op">,</span> password<span class="op">;</span>
+
+    <span class="kw">function</span> <span class="at">doLogin</span>(user<span class="op">,</span>pw) <span class="op">{</span>
+        username <span class="op">=</span> user<span class="op">;</span>
+        password <span class="op">=</span> pw<span class="op">;</span>
+
+        <span class="co">// do the rest of the login work</span>
+    <span class="op">}</span>
+
+    <span class="kw">var</span> publicAPI <span class="op">=</span> <span class="op">{</span>
+        <span class="dt">login</span><span class="op">:</span> doLogin
+    <span class="op">};</span>
+
+    <span class="cf">return</span> publicAPI<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="co">// create a `User` module instance</span>
+<span class="kw">var</span> fred <span class="op">=</span> <span class="at">User</span>()<span class="op">;</span>
+
+<span class="va">fred</span>.<span class="at">login</span>( <span class="st">&quot;fred&quot;</span><span class="op">,</span> <span class="st">&quot;12Battery34!&quot;</span> )<span class="op">;</span></code></pre></div>
+<p>The <code>User()</code> function serves as an outer scope that holds the variables <code>username</code> and <code>password</code>, as well as the inner <code>doLogin()</code> function; these are all private inner details of this <code>User</code> module that cannot be accessed from the outside world.</p>
+<p><strong>Warning:</strong> We are not calling <code>new User()</code> here, on purpose, despite the fact that probably seems more common to most readers. <code>User()</code> is just a function, not a class to be instantiated, so it's just called normally. Using <code>new</code> would be inappropriate and actually waste resources.</p>
+<p>Executing <code>User()</code> creates an <em>instance</em> of the <code>User</code> module -- a whole new scope is created, and thus a whole new copy of each of these inner variables/functions. We assign this instance to <code>fred</code>. If we run <code>User()</code> again, we'd get a new instance entirely separate from <code>fred</code>.</p>
+<p>The inner <code>doLogin()</code> function has a closure over <code>username</code> and <code>password</code>, meaning it will retain its access to them even after the <code>User()</code> function finishes running.</p>
+<p><code>publicAPI</code> is an object with one property/method on it, <code>login</code>, which is a reference to the inner <code>doLogin()</code> function. When we return <code>publicAPI</code> from <code>User()</code>, it becomes the instance we call <code>fred</code>.</p>
+<p>At this point, the outer <code>User()</code> function has finished executing. Normally, you'd think the inner variables like <code>username</code> and <code>password</code> have gone away. But here they have not, because there's a closure in the <code>login()</code> function keeping them alive.</p>
+<p>That's why we can call <code>fred.login(..)</code> -- the same as calling the inner <code>doLogin(..)</code> -- and it can still access <code>username</code> and <code>password</code> inner variables.</p>
+<p>There's a good chance that with just this brief glimpse at closure and the module pattern, some of it is still a bit confusing. That's OK! It takes some work to wrap your brain around it.</p>
+<p>From here, go read the <em>Scope &amp; Closures</em> title of this series for a much more in-depth exploration.</p>
+<h2 id="this-identifier"><code>this</code> Identifier</h2>
+<p>Another very commonly misunderstood concept in JavaScript is the <code>this</code> identifier. Again, there's a couple of chapters on it in the <em>this &amp; Object Prototypes</em> title of this series, so here we'll just briefly introduce the concept.</p>
+<p>While it may often seem that <code>this</code> is related to &quot;object-oriented patterns,&quot; in JS <code>this</code> is a different mechanism.</p>
+<p>If a function has a <code>this</code> reference inside it, that <code>this</code> reference usually points to an <code>object</code>. But which <code>object</code> it points to depends on how the function was called.</p>
+<p>It's important to realize that <code>this</code> <em>does not</em> refer to the function itself, as is the most common misconception.</p>
+<p>Here's a quick illustration:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( <span class="kw">this</span>.<span class="at">bar</span> )<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">var</span> bar <span class="op">=</span> <span class="st">&quot;global&quot;</span><span class="op">;</span>
+
+<span class="kw">var</span> obj1 <span class="op">=</span> <span class="op">{</span>
+    <span class="dt">bar</span><span class="op">:</span> <span class="st">&quot;obj1&quot;</span><span class="op">,</span>
+    <span class="dt">foo</span><span class="op">:</span> foo
+<span class="op">};</span>
+
+<span class="kw">var</span> obj2 <span class="op">=</span> <span class="op">{</span>
+    <span class="dt">bar</span><span class="op">:</span> <span class="st">&quot;obj2&quot;</span>
+<span class="op">};</span>
+
+<span class="co">// --------</span>
+
+<span class="at">foo</span>()<span class="op">;</span>              <span class="co">// &quot;global&quot;</span>
+<span class="va">obj1</span>.<span class="at">foo</span>()<span class="op">;</span>         <span class="co">// &quot;obj1&quot;</span>
+<span class="va">foo</span>.<span class="at">call</span>( obj2 )<span class="op">;</span>       <span class="co">// &quot;obj2&quot;</span>
+<span class="kw">new</span> <span class="at">foo</span>()<span class="op">;</span>          <span class="co">// undefined</span></code></pre></div>
+<p>There are four rules for how <code>this</code> gets set, and they're shown in those last four lines of that snippet.</p>
+<ol type="1">
+<li><code>foo()</code> ends up setting <code>this</code> to the global object in non-strict mode -- in strict mode, <code>this</code> would be <code>undefined</code> and you'd get an error in accessing the <code>bar</code> property -- so <code>&quot;global&quot;</code> is the value found for <code>this.bar</code>.</li>
+<li><code>obj1.foo()</code> sets <code>this</code> to the <code>obj1</code> object.</li>
+<li><code>foo.call(obj2)</code> sets <code>this</code> to the <code>obj2</code> object.</li>
+<li><code>new foo()</code> sets <code>this</code> to a brand new empty object.</li>
+</ol>
+<p>Bottom line: to understand what <code>this</code> points to, you have to examine how the function in question was called. It will be one of those four ways just shown, and that will then answer what <code>this</code> is.</p>
+<p><strong>Note:</strong> For more information about <code>this</code>, see Chapters 1 and 2 of the <em>this &amp; Object Prototypes</em> title of this series.</p>
+<h2 id="prototypes">Prototypes</h2>
+<p>The prototype mechanism in JavaScript is quite complicated. We will only glance at it here. You will want to spend plenty of time reviewing Chapters 4-6 of the <em>this &amp; Object Prototypes</em> title of this series for all the details.</p>
+<p>When you reference a property on an object, if that property doesn't exist, JavaScript will automatically use that object's internal prototype reference to find another object to look for the property on. You could think of this almost as a fallback if the property is missing.</p>
+<p>The internal prototype reference linkage from one object to its fallback happens at the time the object is created. The simplest way to illustrate it is with a built-in utility called <code>Object.create(..)</code>.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> foo <span class="op">=</span> <span class="op">{</span>
+    <span class="dt">a</span><span class="op">:</span> <span class="dv">42</span>
+<span class="op">};</span>
+
+<span class="co">// create `bar` and link it to `foo`</span>
+<span class="kw">var</span> bar <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>( foo )<span class="op">;</span>
+
+<span class="va">bar</span>.<span class="at">b</span> <span class="op">=</span> <span class="st">&quot;hello world&quot;</span><span class="op">;</span>
+
+<span class="va">bar</span>.<span class="at">b</span><span class="op">;</span>      <span class="co">// &quot;hello world&quot;</span>
+<span class="va">bar</span>.<span class="at">a</span><span class="op">;</span>      <span class="co">// 42 &lt;-- delegated to `foo`</span></code></pre></div>
+<p>It may help to visualize the <code>foo</code> and <code>bar</code> objects and their relationship:</p>
+<p><img src="fig6.png"/></p>
+<p>The <code>a</code> property doesn't actually exist on the <code>bar</code> object, but because <code>bar</code> is prototype-linked to <code>foo</code>, JavaScript automatically falls back to looking for <code>a</code> on the <code>foo</code> object, where it's found.</p>
+<p>This linkage may seem like a strange feature of the language. The most common way this feature is used -- and I would argue, abused -- is to try to emulate/fake a &quot;class&quot; mechanism with &quot;inheritance.&quot;</p>
+<p>But a more natural way of applying prototypes is a pattern called &quot;behavior delegation,&quot; where you intentionally design your linked objects to be able to <em>delegate</em> from one to the other for parts of the needed behavior.</p>
+<p><strong>Note:</strong> For more information about prototypes and behavior delegation, see Chapters 4-6 of the <em>this &amp; Object Prototypes</em> title of this series.</p>
+<h2 id="old-new">Old &amp; New</h2>
+<p>Some of the JS features we've already covered, and certainly many of the features covered in the rest of this series, are newer additions and will not necessarily be available in older browsers. In fact, some of the newest features in the specification aren't even implemented in any stable browsers yet.</p>
+<p>So, what do you do with the new stuff? Do you just have to wait around for years or decades for all the old browsers to fade into obscurity?</p>
+<p>That's how many people think about the situation, but it's really not a healthy approach to JS.</p>
+<p>There are two main techniques you can use to &quot;bring&quot; the newer JavaScript stuff to the older browsers: polyfilling and transpiling.</p>
+<h3 id="polyfilling">Polyfilling</h3>
+<p>The word &quot;polyfill&quot; is an invented term (by Remy Sharp) (https://remysharp.com/2010/10/08/what-is-a-polyfill) used to refer to taking the definition of a newer feature and producing a piece of code that's equivalent to the behavior, but is able to run in older JS environments.</p>
+<p>For example, ES6 defines a utility called <code>Number.isNaN(..)</code> to provide an accurate non-buggy check for <code>NaN</code> values, deprecating the original <code>isNaN(..)</code> utility. But it's easy to polyfill that utility so that you can start using it in your code regardless of whether the end user is in an ES6 browser or not.</p>
+<p>Consider:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="cf">if</span> (<span class="op">!</span><span class="va">Number</span>.<span class="at">isNaN</span>) <span class="op">{</span>
+    <span class="va">Number</span>.<span class="at">isNaN</span> <span class="op">=</span> <span class="kw">function</span> <span class="at">isNaN</span>(x) <span class="op">{</span>
+        <span class="cf">return</span> x <span class="op">!==</span> x<span class="op">;</span>
+    <span class="op">};</span>
+<span class="op">}</span></code></pre></div>
+<p>The <code>if</code> statement guards against applying the polyfill definition in ES6 browsers where it will already exist. If it's not already present, we define <code>Number.isNaN(..)</code>.</p>
+<p><strong>Note:</strong> The check we do here takes advantage of a quirk with <code>NaN</code> values, which is that they're the only value in the whole language that is not equal to itself. So the <code>NaN</code> value is the only one that would make <code>x !== x</code> be <code>true</code>.</p>
+<p>Not all new features are fully polyfillable. Sometimes most of the behavior can be polyfilled, but there are still small deviations. You should be really, really careful in implementing a polyfill yourself, to make sure you are adhering to the specification as strictly as possible.</p>
+<p>Or better yet, use an already vetted set of polyfills that you can trust, such as those provided by ES5-Shim (https://github.com/es-shims/es5-shim) and ES6-Shim (https://github.com/es-shims/es6-shim).</p>
+<h3 id="transpiling">Transpiling</h3>
+<p>There's no way to polyfill new syntax that has been added to the language. The new syntax would throw an error in the old JS engine as unrecognized/invalid.</p>
+<p>So the better option is to use a tool that converts your newer code into older code equivalents. This process is commonly called &quot;transpiling,&quot; a term for transforming + compiling.</p>
+<p>Essentially, your source code is authored in the new syntax form, but what you deploy to the browser is the transpiled code in old syntax form. You typically insert the transpiler into your build process, similar to your code linter or your minifier.</p>
+<p>You might wonder why you'd go to the trouble to write new syntax only to have it transpiled away to older code -- why not just write the older code directly?</p>
+<p>There are several important reasons you should care about transpiling:</p>
+<ul>
+<li>The new syntax added to the language is designed to make your code more readable and maintainable. The older equivalents are often much more convoluted. You should prefer writing newer and cleaner syntax, not only for yourself but for all other members of the development team.</li>
+<li>If you transpile only for older browsers, but serve the new syntax to the newest browsers, you get to take advantage of browser performance optimizations with the new syntax. This also lets browser makers have more real-world code to test their implementations and optimizations on.</li>
+<li>Using the new syntax earlier allows it to be tested more robustly in the real world, which provides earlier feedback to the JavaScript committee (TC39). If issues are found early enough, they can be changed/fixed before those language design mistakes become permanent.</li>
+</ul>
+<p>Here's a quick example of transpiling. ES6 adds a feature called &quot;default parameter values.&quot; It looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>(a <span class="op">=</span> <span class="dv">2</span>) <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="at">foo</span>()<span class="op">;</span>      <span class="co">// 2</span>
+<span class="at">foo</span>( <span class="dv">42</span> )<span class="op">;</span>  <span class="co">// 42</span></code></pre></div>
+<p>Simple, right? Helpful, too! But it's new syntax that's invalid in pre-ES6 engines. So what will a transpiler do with that code to make it run in older environments?</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+    <span class="kw">var</span> a <span class="op">=</span> arguments[<span class="dv">0</span>] <span class="op">!==</span> (<span class="kw">void</span> <span class="dv">0</span>) <span class="op">?</span> arguments[<span class="dv">0</span>] : <span class="dv">2</span><span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>As you can see, it checks to see if the <code>arguments[0]</code> value is <code>void 0</code> (aka <code>undefined</code>), and if so provides the <code>2</code> default value; otherwise, it assigns whatever was passed.</p>
+<p>In addition to being able to now use the nicer syntax even in older browsers, looking at the transpiled code actually explains the intended behavior more clearly.</p>
+<p>You may not have realized just from looking at the ES6 version that <code>undefined</code> is the only value that can't get explicitly passed in for a default-value parameter, but the transpiled code makes that much more clear.</p>
+<p>The last important detail to emphasize about transpilers is that they should now be thought of as a standard part of the JS development ecosystem and process. JS is going to continue to evolve, much more quickly than before, so every few months new syntax and new features will be added.</p>
+<p>If you use a transpiler by default, you'll always be able to make that switch to newer syntax whenever you find it useful, rather than always waiting for years for today's browsers to phase out.</p>
+<p>There are quite a few great transpilers for you to choose from. Here are some good options at the time of this writing:</p>
+<ul>
+<li>Babel (https://babeljs.io) (formerly 6to5): Transpiles ES6+ into ES5</li>
+<li>Traceur (https://github.com/google/traceur-compiler): Transpiles ES6, ES7, and beyond into ES5</li>
+</ul>
+<h2 id="non-javascript">Non-JavaScript</h2>
+<p>So far, the only things we've covered are in the JS language itself. The reality is that most JS is written to run in and interact with environments like browsers. A good chunk of the stuff that you write in your code is, strictly speaking, not directly controlled by JavaScript. That probably sounds a little strange.</p>
+<p>The most common non-JavaScript JavaScript you'll encounter is the DOM API. For example:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> el <span class="op">=</span> <span class="va">document</span>.<span class="at">getElementById</span>( <span class="st">&quot;foo&quot;</span> )<span class="op">;</span></code></pre></div>
+<p>The <code>document</code> variable exists as a global variable when your code is running in a browser. It's not provided by the JS engine, nor is it particularly controlled by the JavaScript specification. It takes the form of something that looks an awful lot like a normal JS <code>object</code>, but it's not really exactly that. It's a special <code>object,</code> often called a &quot;host object.&quot;</p>
+<p>Moreover, the <code>getElementById(..)</code> method on <code>document</code> looks like a normal JS function, but it's just a thinly exposed interface to a built-in method provided by the DOM from your browser. In some (newer-generation) browsers, this layer may also be in JS, but traditionally the DOM and its behavior is implemented in something more like C/C++.</p>
+<p>Another example is with input/output (I/O).</p>
+<p>Everyone's favorite <code>alert(..)</code> pops up a message box in the user's browser window. <code>alert(..)</code> is provided to your JS program by the browser, not by the JS engine itself. The call you make sends the message to the browser internals and it handles drawing and displaying the message box.</p>
+<p>The same goes with <code>console.log(..)</code>; your browser provides such mechanisms and hooks them up to the developer tools.</p>
+<p>This book, and this whole series, focuses on JavaScript the language. That's why you don't see any substantial coverage of these non-JavaScript JavaScript mechanisms. Nevertheless, you need to be aware of them, as they'll be in every JS program you write!</p>
+<h2 id="review-1">Review</h2>
+<p>The first step to learning JavaScript's flavor of programming is to get a basic understanding of its core mechanisms like values, types, function closures, <code>this</code>, and prototypes.</p>
+<p>Of course, each of these topics deserves much greater coverage than you've seen here, but that's why they have chapters and books dedicated to them throughout the rest of this series. After you feel pretty comfortable with the concepts and code samples in this chapter, the rest of the series awaits you to really dig in and get to know the language deeply.</p>
+<p>The final chapter of this book will briefly summarize each of the other titles in the series and the other concepts they cover besides what we've already explored.</p>
+<h1 id="you-dont-know-js-up-going-3">You Don't Know JS: Up &amp; Going</h1>
+<h1 id="chapter-3-into-ydkjs">Chapter 3: Into YDKJS</h1>
+<p>What is this series all about? Put simply, it's about taking seriously the task of learning <em>all parts of JavaScript</em>, not just some subset of the language that someone called &quot;the good parts,&quot; and not just whatever minimal amount you need to get your job done at work.</p>
+<p>Serious developers in other languages expect to put in the effort to learn most or all of the language(s) they primarily write in, but JS developers seem to stand out from the crowd in the sense of typically not learning very much of the language. This is not a good thing, and it's not something we should continue to allow to be the norm.</p>
+<p>The <em>You Don't Know JS</em> (<em>YDKJS</em>) series stands in stark contrast to the typical approaches to learning JS, and is unlike almost any other JS books you will read. It challenges you to go beyond your comfort zone and to ask the deeper &quot;why&quot; questions for every single behavior you encounter. Are you up for that challenge?</p>
+<p>I'm going to use this final chapter to briefly summarize what to expect from the rest of the books in the series, and how to most effectively go about building a foundation of JS learning on top of <em>YDKJS</em>.</p>
+<h2 id="scope-closures">Scope &amp; Closures</h2>
+<p>Perhaps one of the most fundamental things you'll need to quickly come to terms with is how scoping of variables really works in JavaScript. It's not enough to have anecdotal fuzzy <em>beliefs</em> about scope.</p>
+<p>The <em>Scope &amp; Closures</em> title starts by debunking the common misconception that JS is an &quot;interpreted language&quot; and therefore not compiled. Nope.</p>
+<p>The JS engine compiles your code right before (and sometimes during!) execution. So we use some deeper understanding of the compiler's approach to our code to understand how it finds and deals with variable and function declarations. Along the way, we see the typical metaphor for JS variable scope management, &quot;Hoisting.&quot;</p>
+<p>This critical understanding of &quot;lexical scope&quot; is what we then base our exploration of closure on for the last chapter of the book. Closure is perhaps the single most important concept in all of JS, but if you haven't first grasped firmly how scope works, closure will likely remain beyond your grasp.</p>
+<p>One important application of closure is the module pattern, as we briefly introduced in this book in Chapter 2. The module pattern is perhaps the most prevalent code organization pattern in all of JavaScript; deep understanding of it should be one of your highest priorities.</p>
+<h2 id="this-object-prototypes">this &amp; Object Prototypes</h2>
+<p>Perhaps one of the most widespread and persistent mistruths about JavaScript is that the <code>this</code> keyword refers to the function it appears in. Terribly mistaken.</p>
+<p>The <code>this</code> keyword is dynamically bound based on how the function in question is executed, and it turns out there are four simple rules to understand and fully determine <code>this</code> binding.</p>
+<p>Closely related to the <code>this</code> keyword is the object prototype mechanism, which is a look-up chain for properties, similar to how lexical scope variables are found. But wrapped up in the prototypes is the other huge miscue about JS: the idea of emulating (fake) classes and (so-called &quot;prototypal&quot;) inheritance.</p>
+<p>Unfortunately, the desire to bring class and inheritance design pattern thinking to JavaScript is just about the worst thing you could try to do, because while the syntax may trick you into thinking there's something like classes present, in fact the prototype mechanism is fundamentally opposite in its behavior.</p>
+<p>What's at issue is whether it's better to ignore the mismatch and pretend that what you're implementing is &quot;inheritance,&quot; or whether it's more appropriate to learn and embrace how the object prototype system actually works. The latter is more appropriately named &quot;behavior delegation.&quot;</p>
+<p>This is more than syntactic preference. Delegation is an entirely different, and more powerful, design pattern, one that replaces the need to design with classes and inheritance. But these assertions will absolutely fly in the face of nearly every other blog post, book, and conference talk on the subject for the entirety of JavaScript's lifetime.</p>
+<p>The claims I make regarding delegation versus inheritance come not from a dislike of the language and its syntax, but from the desire to see the true capability of the language properly leveraged and the endless confusion and frustration wiped away.</p>
+<p>But the case I make regarding prototypes and delegation is a much more involved one than what I will indulge here. If you're ready to reconsider everything you think you know about JavaScript &quot;classes&quot; and &quot;inheritance,&quot; I offer you the chance to &quot;take the red pill&quot; (<em>Matrix</em> 1999) and check out Chapters 4-6 of the <em>this &amp; Object Prototypes</em> title of this series.</p>
+<h2 id="types-grammar">Types &amp; Grammar</h2>
+<p>The third title in this series primarily focuses on tackling yet another highly controversial topic: type coercion. Perhaps no topic causes more frustration with JS developers than when you talk about the confusions surrounding implicit coercion.</p>
+<p>By far, the conventional wisdom is that implicit coercion is a &quot;bad part&quot; of the language and should be avoided at all costs. In fact, some have gone so far as to call it a &quot;flaw&quot; in the design of the language. Indeed, there are tools whose entire job is to do nothing but scan your code and complain if you're doing anything even remotely like coercion.</p>
+<p>But is coercion really so confusing, so bad, so treacherous, that your code is doomed from the start if you use it?</p>
+<p>I say no. After having built up an understanding of how types and values really work in Chapters 1-3, Chapter 4 takes on this debate and fully explains how coercion works, in all its nooks and crevices. We see just what parts of coercion really are surprising and what parts actually make complete sense if given the time to learn.</p>
+<p>But I'm not merely suggesting that coercion is sensible and learnable, I'm asserting that coercion is an incredibly useful and totally underestimated tool that <em>you should be using in your code.</em> I'm saying that coercion, when used properly, not only works, but makes your code better. All the naysayers and doubters will surely scoff at such a position, but I believe it's one of the main keys to upping your JS game.</p>
+<p>Do you want to just keep following what the crowd says, or are you willing to set all the assumptions aside and look at coercion with a fresh perspective? The <em>Types &amp; Grammar</em> title of this series will coerce your thinking.</p>
+<h2 id="async-performance">Async &amp; Performance</h2>
+<p>The first three titles of this series focus on the core mechanics of the language, but the fourth title branches out slightly to cover patterns on top of the language mechanics for managing asynchronous programming. Asynchrony is not only critical to the performance of our applications, it's increasingly becoming <em>the</em> critical factor in writability and maintainability.</p>
+<p>The book starts first by clearing up a lot of terminology and concept confusion around things like &quot;async,&quot; &quot;parallel,&quot; and &quot;concurrent,&quot; and explains in depth how such things do and do not apply to JS.</p>
+<p>Then we move into examining callbacks as the primary method of enabling asynchrony. But it's here that we quickly see that the callback alone is hopelessly insufficient for the modern demands of asynchronous programming. We identify two major deficiencies of callbacks-only coding: <em>Inversion of Control</em> (IoC) trust loss and lack of linear reason-ability.</p>
+<p>To address these two major deficiencies, ES6 introduces two new mechanisms (and indeed, patterns): promises and generators.</p>
+<p>Promises are a time-independent wrapper around a &quot;future value,&quot; which lets you reason about and compose them regardless of if the value is ready or not yet. Moreover, they effectively solve the IoC trust issues by routing callbacks through a trustable and composable promise mechanism.</p>
+<p>Generators introduce a new mode of execution for JS functions, whereby the generator can be paused at <code>yield</code> points and be resumed asynchronously later. The pause-and-resume capability enables synchronous, sequential looking code in the generator to be processed asynchronously behind the scenes. By doing so, we address the non-linear, non-local-jump confusions of callbacks and thereby make our asynchronous code sync-looking so as to be more reason-able.</p>
+<p>But it's the combination of promises and generators that &quot;yields&quot; our most effective asynchronous coding pattern to date in JavaScript. In fact, much of the future sophistication of asynchrony coming in ES7 and later will certainly be built on this foundation. To be serious about programming effectively in an async world, you're going to need to get really comfortable with combining promises and generators.</p>
+<p>If promises and generators are about expressing patterns that let our programs run more concurrently and thus get more processing accomplished in a shorter period, JS has many other facets of performance optimization worth exploring.</p>
+<p>Chapter 5 delves into topics like program parallelism with Web Workers and data parallelism with SIMD, as well as low-level optimization techniques like ASM.js. Chapter 6 takes a look at performance optimization from the perspective of proper benchmarking techniques, including what kinds of performance to worry about and what to ignore.</p>
+<p>Writing JavaScript effectively means writing code that can break the constraint barriers of being run dynamically in a wide range of browsers and other environments. It requires a lot of intricate and detailed planning and effort on our parts to take a program from &quot;it works&quot; to &quot;it works well.&quot;</p>
+<p>The <em>Async &amp; Performance</em> title is designed to give you all the tools and skills you need to write reasonable and performant JavaScript code.</p>
+<h2 id="es6-beyond">ES6 &amp; Beyond</h2>
+<p>No matter how much you feel you've mastered JavaScript to this point, the truth is that JavaScript is never going to stop evolving, and moreover, the rate of evolution is increasing rapidly. This fact is almost a metaphor for the spirit of this series, to embrace that we'll never fully <em>know</em> every part of JS, because as soon as you master it all, there's going to be new stuff coming down the line that you'll need to learn.</p>
+<p>This title is dedicated to both the short- and mid-term visions of where the language is headed, not just the <em>known</em> stuff like ES6 but the <em>likely</em> stuff beyond.</p>
+<p>While all the titles of this series embrace the state of JavaScript at the time of this writing, which is mid-way through ES6 adoption, the primary focus in the series has been more on ES5. Now, we want to turn our attention to ES6, ES7, and ...</p>
+<p>Since ES6 is nearly complete at the time of this writing, <em>ES6 &amp; Beyond</em> starts by dividing up the concrete stuff from the ES6 landscape into several key categories, including new syntax, new data structures (collections), and new processing capabilities and APIs. We cover each of these new ES6 features, in varying levels of detail, including reviewing details that are touched on in other books of this series.</p>
+<p>Some exciting ES6 things to look forward to reading about: destructuring, default parameter values, symbols, concise methods, computed properties, arrow functions, block scoping, promises, generators, iterators, modules, proxies, weakmaps, and much, much more! Phew, ES6 packs quite a punch!</p>
+<p>The first part of the book is a roadmap for all the stuff you need to learn to get ready for the new and improved JavaScript you'll be writing and exploring over the next couple of years.</p>
+<p>The latter part of the book turns attention to briefly glance at things that we can likely expect to see in the near future of JavaScript. The most important realization here is that post-ES6, JS is likely going to evolve feature by feature rather than version by version, which means we can expect to see these near-future things coming much sooner than you might imagine.</p>
+<p>The future for JavaScript is bright. Isn't it time we start learning it!?</p>
+<h2 id="review-2">Review</h2>
+<p>The <em>YDKJS</em> series is dedicated to the proposition that all JS developers can and should learn all of the parts of this great language. No person's opinion, no framework's assumptions, and no project's deadline should be the excuse for why you never learn and deeply understand JavaScript.</p>
+<p>We take each important area of focus in the language and dedicate a short but very dense book to fully explore all the parts of it that you perhaps thought you knew but probably didn't fully.</p>
+<p>&quot;You Don't Know JS&quot; isn't a criticism or an insult. It's a realization that all of us, myself included, must come to terms with. Learning JavaScript isn't an end goal but a process. We don't know JavaScript, yet. But we will!</p>
+<h1 id="you-dont-know-js-up-going-4">You Don't Know JS: Up &amp; Going</h1>
+<h1 id="appendix-a-acknowledgments">Appendix A: Acknowledgments</h1>
+<p>I have many people to thank for making this book title and the overall series happen.</p>
+<p>First, I must thank my wife Christen Simpson, and my two kids Ethan and Emily, for putting up with Dad always pecking away at the computer. Even when not writing books, my obsession with JavaScript glues my eyes to the screen far more than it should. That time I borrow from my family is the reason these books can so deeply and completely explain JavaScript to you, the reader. I owe my family everything.</p>
+<p>I'd like to thank my editors at O'Reilly, namely Simon St.Laurent and Brian MacDonald, as well as the rest of the editorial and marketing staff. They are fantastic to work with, and have been especially accommodating during this experiment into &quot;open source&quot; book writing, editing, and production.</p>
+<p>Thank you to the many folks who have participated in making this book series better by providing editorial suggestions and corrections, including Shelley Powers, Tim Ferro, Evan Borden, Forrest L. Norvell, Jennifer Davis, Jesse Harlin, Kris Kowal, Rick Waldron, Jordan Harband, Benjamin Gruenbaum, Vyacheslav Egorov, David Nolen, and many others. A big thank you to Jenn Lukas for writing the Foreword for this title.</p>
+<p>Thank you to the countless folks in the community, including members of the TC39 committee, who have shared so much knowledge with the rest of us, and especially tolerated my incessant questions and explorations with patience and detail. John-David Dalton, Juriy &quot;kangax&quot; Zaytsev, Mathias Bynens, Axel Rauschmayer, Nicholas Zakas, Angus Croll, Reginald Braithwaite, Dave Herman, Brendan Eich, Allen Wirfs-Brock, Bradley Meck, Domenic Denicola, David Walsh, Tim Disney, Peter van der Zee, Andrea Giammarchi, Kit Cambridge, Eric Elliott, and so many others, I can't even scratch the surface.</p>
+<p>Since the &quot;You Don't Know JS&quot; book series was born on Kickstarter, I also wish to thank all my (nearly) 500 generous backers, without whom this book series could not have happened:</p>
+<blockquote>
+<p>Jan Szpila, nokiko, Murali Krishnamoorthy, Ryan Joy, Craig Patchett, pdqtrader, Dale Fukami, ray hatfield, R0drigo Perez [Mx], Dan Petitt, Jack Franklin, Andrew Berry, Brian Grinstead, Rob Sutherland, Sergi Meseguer, Phillip Gourley, Mark Watson, Jeff Carouth, Alfredo Sumaran, Martin Sachse, Marcio Barrios, Dan, AimelyneM, Matt Sullivan, Delnatte Pierre-Antoine, Jake Smith, Eugen Tudorancea, Iris, David Trinh, simonstl, Ray Daly, Uros Gruber, Justin Myers, Shai Zonis, Mom &amp; Dad, Devin Clark, Dennis Palmer, Brian Panahi Johnson, Josh Marshall, Marshall, Dennis Kerr, Matt Steele, Erik Slagter, Sacah, Justin Rainbow, Christian Nilsson, Delapouite, D.Pereira, Nicolas Hoizey, George V. Reilly, Dan Reeves, Bruno Laturner, Chad Jennings, Shane King, Jeremiah Lee Cohick, od3n, Stan Yamane, Marko Vucinic, Jim B, Stephen Collins, Ægir Þorsteinsson, Eric Pederson, Owain, Nathan Smith, Jeanetteurphy, Alexandre ELISÉ, Chris Peterson, Rik Watson, Luke Matthews, Justin Lowery, Morten Nielsen, Vernon Kesner, Chetan Shenoy, Paul Tregoing, Marc Grabanski, Dion Almaer, Andrew Sullivan, Keith Elsass, Tom Burke, Brian Ashenfelter, David Stuart, Karl Swedberg, Graeme, Brandon Hays, John Christopher, Gior, manoj reddy, Chad Smith, Jared Harbour, Minoru TODA, Chris Wigley, Daniel Mee, Mike, Handyface, Alex Jahraus, Carl Furrow, Rob Foulkrod, Max Shishkin, Leigh Penny Jr., Robert Ferguson, Mike van Hoenselaar, Hasse Schougaard, rajan venkataguru, Jeff Adams, Trae Robbins, Rolf Langenhuijzen, Jorge Antunes, Alex Koloskov, Hugh Greenish, Tim Jones, Jose Ochoa, Michael Brennan-White, Naga Harish Muvva, Barkóczi Dávid, Kitt Hodsden, Paul McGraw, Sascha Goldhofer, Andrew Metcalf, Markus Krogh, Michael Mathews, Matt Jared, Juanfran, Georgie Kirschner, Kenny Lee, Ted Zhang, Amit Pahwa, Inbal Sinai, Dan Raine, Schabse Laks, Michael Tervoort, Alexandre Abreu, Alan Joseph Williams, NicolasD, Cindy Wong, Reg Braithwaite, LocalPCGuy, Jon Friskics, Chris Merriman, John Pena, Jacob Katz, Sue Lockwood, Magnus Johansson, Jeremy Crapsey, Grzegorz Pawłowski, nico nuzzaci, Christine Wilks, Hans Bergren, charles montgomery, Ariel בר-לבב Fogel, Ivan Kolev, Daniel Campos, Hugh Wood, Christian Bradford, Frédéric Harper, Ionuţ Dan Popa, Jeff Trimble, Rupert Wood, Trey Carrico, Pancho Lopez, Joël kuijten, Tom A Marra, Jeff Jewiss, Jacob Rios, Paolo Di Stefano, Soledad Penades, Chris Gerber, Andrey Dolganov, Wil Moore III, Thomas Martineau, Kareem, Ben Thouret, Udi Nir, Morgan Laupies, jory carson-burson, Nathan L Smith, Eric Damon Walters, Derry Lozano-Hoyland, Geoffrey Wiseman, mkeehner, KatieK, Scott MacFarlane, Brian LaShomb, Adrien Mas, christopher ross, Ian Littman, Dan Atkinson, Elliot Jobe, Nick Dozier, Peter Wooley, John Hoover, dan, Martin A. Jackson, Héctor Fernando Hurtado, andy ennamorato, Paul Seltmann, Melissa Gore, Dave Pollard, Jack Smith, Philip Da Silva, Guy Israeli, <span class="citation" data-cites="megalithic">@megalithic</span>, Damian Crawford, Felix Gliesche, April Carter Grant, Heidi, jim tierney, Andrea Giammarchi, Nico Vignola, Don Jones, Chris Hartjes, Alex Howes, john gibbon, David J. Groom, BBox, Yu 'Dilys' Sun, Nate Steiner, Brandon Satrom, Brian Wyant, Wesley Hales, Ian Pouncey, Timothy Kevin Oxley, George Terezakis, sanjay raj, Jordan Harband, Marko McLion, Wolfgang Kaufmann, Pascal Peuckert, Dave Nugent, Markus Liebelt, Welling Guzman, Nick Cooley, Daniel Mesquita, Robert Syvarth, Chris Coyier, Rémy Bach, Adam Dougal, Alistair Duggin, David Loidolt, Ed Richer, Brian Chenault, GoldFire Studios, Carles Andrés, Carlos Cabo, Yuya Saito, roberto ricardo, Barnett Klane, Mike Moore, Kevin Marx, Justin Love, Joe Taylor, Paul Dijou, Michael Kohler, Rob Cassie, Mike Tierney, Cody Leroy Lindley, tofuji, Shimon Schwartz, Raymond, Luc De Brouwer, David Hayes, Rhys Brett-Bowen, Dmitry, Aziz Khoury, Dean, Scott Tolinski - Level Up, Clement Boirie, Djordje Lukic, Anton Kotenko, Rafael Corral, Philip Hurwitz, Jonathan Pidgeon, Jason Campbell, Joseph C., SwiftOne, Jan Hohner, Derick Bailey, getify, Daniel Cousineau, Chris Charlton, Eric Turner, David Turner, Joël Galeran, Dharma Vagabond, adam, Dirk van Bergen, dave ♥♫★ furf, Vedran Zakanj, Ryan McAllen, Natalie Patrice Tucker, Eric J. Bivona, Adam Spooner, Aaron Cavano, Kelly Packer, Eric J, Martin Drenovac, Emilis, Michael Pelikan, Scott F. Walter, Josh Freeman, Brandon Hudgeons, vijay chennupati, Bill Glennon, Robin R., Troy Forster, otaku_coder, Brad, Scott, Frederick Ostrander, Adam Brill, Seb Flippence, Michael Anderson, Jacob, Adam Randlett, Standard, Joshua Clanton, Sebastian Kouba, Chris Deck, SwordFire, Hannes Papenberg, Richard Woeber, hnzz, Rob Crowther, Jedidiah Broadbent, Sergey Chernyshev, Jay-Ar Jamon, Ben Combee, luciano bonachela, Mark Tomlinson, Kit Cambridge, Michael Melgares, Jacob Adams, Adrian Bruinhout, Bev Wieber, Scott Puleo, Thomas Herzog, April Leone, Daniel Mizieliński, Kees van Ginkel, Jon Abrams, Erwin Heiser, Avi Laviad, David newell, Jean-Francois Turcot, Niko Roberts, Erik Dana, Charles Neill, Aaron Holmes, Grzegorz Ziółkowski, Nathan Youngman, Timothy, Jacob Mather, Michael Allan, Mohit Seth, Ryan Ewing, Benjamin Van Treese, Marcelo Santos, Denis Wolf, Phil Keys, Chris Yung, Timo Tijhof, Martin Lekvall, Agendine, Greg Whitworth, Helen Humphrey, Dougal Campbell, Johannes Harth, Bruno Girin, Brian Hough, Darren Newton, Craig McPheat, Olivier Tille, Dennis Roethig, Mathias Bynens, Brendan Stromberger, sundeep, John Meyer, Ron Male, John F Croston III, gigante, Carl Bergenhem, B.J. May, Rebekah Tyler, Ted Foxberry, Jordan Reese, Terry Suitor, afeliz, Tom Kiefer, Darragh Duffy, Kevin Vanderbeken, Andy Pearson, Simon Mac Donald, Abid Din, Chris Joel, Tomas Theunissen, David Dick, Paul Grock, Brandon Wood, John Weis, dgrebb, Nick Jenkins, Chuck Lane, Johnny Megahan, marzsman, Tatu Tamminen, Geoffrey Knauth, Alexander Tarmolov, Jeremy Tymes, Chad Auld, Sean Parmelee, Rob Staenke, Dan Bender, Yannick derwa, Joshua Jones, Geert Plaisier, Tom LeZotte, Christen Simpson, Stefan Bruvik, Justin Falcone, Carlos Santana, Michael Weiss, Pablo Villoslada, Peter deHaan, Dimitris Iliopoulos, seyDoggy, Adam Jordens, Noah Kantrowitz, Amol M, Matthew Winnard, Dirk Ginader, Phinam Bui, David Rapson, Andrew Baxter, Florian Bougel, Michael George, Alban Escalier, Daniel Sellers, Sasha Rudan, John Green, Robert Kowalski, David I. Teixeira (<span class="citation" data-cites="ditma">@ditma</span>, Charles Carpenter, Justin Yost, Sam S, Denis Ciccale, Kevin Sheurs, Yannick Croissant, Pau Fracés, Stephen McGowan, Shawn Searcy, Chris Ruppel, Kevin Lamping, Jessica Campbell, Christopher Schmitt, Sablons, Jonathan Reisdorf, Bunni Gek, Teddy Huff, Michael Mullany, Michael Fürstenberg, Carl Henderson, Rick Yoesting, Scott Nichols, Hernán Ciudad, Andrew Maier, Mike Stapp, Jesse Shawl, Sérgio Lopes, jsulak, Shawn Price, Joel Clermont, Chris Ridmann, Sean Timm, Jason Finch, Aiden Montgomery, Elijah Manor, Derek Gathright, Jesse Harlin, Dillon Curry, Courtney Myers, Diego Cadenas, Arne de Bree, João Paulo Dubas, James Taylor, Philipp Kraeutli, Mihai Păun, Sam Gharegozlou, joshjs, Matt Murchison, Eric Windham, Timo Behrmann, Andrew Hall, joshua price, Théophile Villard</p>
+</blockquote>
+<p>This book series is being produced in an open source fashion, including editing and production. We owe GitHub a debt of gratitude for making that sort of thing possible for the community!</p>
+<p>Thank you again to all the countless folks I didn't name but to whom I nonetheless owe thanks. May this book series be &quot;owned&quot; by all of us and serve to contribute to increasing awareness and understanding of the JavaScript language, to the benefit of all current and future community contributors.</p>
+</body>
+</html>
