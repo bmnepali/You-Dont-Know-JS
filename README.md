@@ -7,7 +7,7 @@ This is a series of books diving deep into the core mechanisms of the JavaScript
 * <img src="up %26 going/cover.jpg" width="75"> **Up & Going** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/up%20%26%20going/build/epub/YDKJS-UpNgoing.epub)
 * <img src="scope %26 closures/cover.jpg" width="75"> **Scope & Closures** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/scope%20%26%20closures/build/epub/YDKJS-ScopeAndClosures.epub)
 * <img src="this %26 object prototypes/cover.jpg" width="75"> **this & Object Prototypes** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/this%20%26%20object%20prototypes/build/epub/YDKJS-ThisAndObjectPrototypes.epub)
-*  <img src="types %26 grammar/cover.jpg" width="75"> **Types & Grammar** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/types%20%26%20grammar/build/epub/YDKJS-ScopeAndClosures.epub)
+*  <img src="types %26 grammar/cover.jpg" width="75"> **Types & Grammar** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/types%20%26%20grammar/build/epub/YDKJS-TypesAndGrammar.epub)
 * <img src="async %26 performance/cover.jpg" width="75"> **Async & Performance** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/async%20%26%20performance/build/epub/YDKJS-AsyncAndPerformance.epub)
 * <img src="es6 %26 beyond/cover.jpg" width="75"> **ES6 & Beyond** [as ePub](https://github.com/tillg/You-Dont-Know-JS/raw/master/es6%20%26%20beyond/build/epub/YDKJS-ES6andBeyond.epub)
 

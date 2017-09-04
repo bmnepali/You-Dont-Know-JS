@@ -1,5 +1,5 @@
 BUILD = build
-BOOKNAME = YDKJS-ScopeAndClosures
+BOOKNAME = YDKJS-TypesAndGrammar
 TITLE = title.txt
 METADATA = metadata.xml
 CHAPTERS = foreword.md ch1.md ch2.md ch3.md ch4.md ch5.md apA.md apB.md 
